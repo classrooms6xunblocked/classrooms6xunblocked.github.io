@@ -25,7 +25,7 @@
       this.rot = Math.random() * Math.PI * 2;
       this.rotSpeed = (Math.random() - 0.5) * 0.02;
       this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
-      this.alpha = Math.random() * 0.3 + 0.15;
+      this.alpha = Math.random() * 0.4 + 0.35;
       this.pulse = Math.random() * Math.PI * 2;
     }
     update() {
@@ -45,8 +45,8 @@
       ctx.rotate(this.rot);
       ctx.globalAlpha = this.alpha * (0.7 + 0.3 * Math.sin(this.pulse));
       ctx.strokeStyle = this.color;
-      ctx.lineWidth = 1;
-      ctx.shadowBlur = 15;
+      ctx.lineWidth = 1.8;
+      ctx.shadowBlur = 25;
       ctx.shadowColor = this.color;
       // Draw cube wireframe
       ctx.strokeRect(-s/2, -s/2, s, s);
@@ -77,7 +77,7 @@
       this.vy = (Math.random() - 0.5) * 0.3;
       this.rot = Math.random() * Math.PI * 2;
       this.rotSpeed = (Math.random() - 0.5) * 0.008;
-      this.alpha = Math.random() * 0.25 + 0.15;
+      this.alpha = Math.random() * 0.4 + 0.35;
       this.pulse = Math.random() * Math.PI * 2;
       this.color = Math.random() > 0.5 ? '#4f8ef7' : '#a259ff';
     }
@@ -99,8 +99,8 @@
       ctx.globalAlpha = this.alpha * (0.8 + 0.2 * Math.sin(this.pulse));
       ctx.strokeStyle = this.color;
       ctx.fillStyle = this.color;
-      ctx.lineWidth = 1.2;
-      ctx.shadowBlur = 18;
+      ctx.lineWidth = 2;
+      ctx.shadowBlur = 30;
       ctx.shadowColor = this.color;
 
       // Draw controller shape - simple rectangles for compatibility
@@ -178,8 +178,8 @@
   function init() {
     resize();
     const isMob = W < 600;
-    cubes       = Array.from({ length: isMob ? 8 : 16 }, () => new Cube());
-    controllers = Array.from({ length: isMob ? 4 : 8  }, () => new Controller());
+    cubes       = Array.from({ length: isMob ? 10 : 20 }, () => new Cube());
+    controllers = Array.from({ length: isMob ? 6 : 12 }, () => new Controller());
     particles   = Array.from({ length: isMob ? 30 : 60}, () => new Particle());
   }
 
