@@ -46,7 +46,7 @@ body {
 
 /* ── NAV ── */
 .logo-img {
-  height: 90px !important;
+  height: 120px !important;
 }
 .navbar {
   position: sticky; top: 0; z-index: 200;
@@ -54,7 +54,7 @@ body {
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--border);
   padding: 0 2rem;
-  height: 80px;
+  height: 110px;
   display: flex; align-items: center; justify-content: space-between;
   gap: 1rem;
 }
