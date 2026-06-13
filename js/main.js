@@ -103,20 +103,20 @@
       ctx.shadowBlur = 10;
       ctx.shadowColor = this.color;
 
-      // Draw controller shape
+      // Draw controller shape - simple rectangles for compatibility
       const w = s * 2, h = s * 1.2;
       ctx.beginPath();
-      ctx.roundRect(-w/2, -h/2, w, h, h * 0.35);
+      ctx.rect(-w/2, -h/2, w, h);
       ctx.stroke();
 
       // Left handle
       ctx.beginPath();
-      ctx.roundRect(-w/2, h * 0.1, w * 0.3, h * 0.5, 4);
+      ctx.rect(-w/2, h * 0.1, w * 0.3, h * 0.5);
       ctx.stroke();
 
       // Right handle
       ctx.beginPath();
-      ctx.roundRect(w/2 - w*0.3, h*0.1, w*0.3, h*0.5, 4);
+      ctx.rect(w/2 - w*0.3, h*0.1, w*0.3, h*0.5);
       ctx.stroke();
 
       // D-pad (left side)
