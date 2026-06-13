@@ -19,13 +19,13 @@
       this.x  = Math.random() * W;
       this.y  = Math.random() * H;
       this.z  = Math.random() * 0.8 + 0.2;
-      this.size = (Math.random() * 18 + 8) * this.z;
+      this.size = (Math.random() * 30 + 15) * this.z;
       this.vx = (Math.random() - 0.5) * 0.4;
       this.vy = (Math.random() - 0.5) * 0.4;
       this.rot = Math.random() * Math.PI * 2;
       this.rotSpeed = (Math.random() - 0.5) * 0.02;
       this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
-      this.alpha = Math.random() * 0.15 + 0.05;
+      this.alpha = Math.random() * 0.3 + 0.15;
       this.pulse = Math.random() * Math.PI * 2;
     }
     update() {
@@ -46,7 +46,7 @@
       ctx.globalAlpha = this.alpha * (0.7 + 0.3 * Math.sin(this.pulse));
       ctx.strokeStyle = this.color;
       ctx.lineWidth = 1;
-      ctx.shadowBlur = 8;
+      ctx.shadowBlur = 15;
       ctx.shadowColor = this.color;
       // Draw cube wireframe
       ctx.strokeRect(-s/2, -s/2, s, s);
@@ -72,12 +72,12 @@
       this.x = Math.random() * W;
       this.y = Math.random() * H;
       this.z = Math.random() * 0.6 + 0.2;
-      this.size = (Math.random() * 24 + 12) * this.z;
+      this.size = (Math.random() * 35 + 18) * this.z;
       this.vx = (Math.random() - 0.5) * 0.3;
       this.vy = (Math.random() - 0.5) * 0.3;
       this.rot = Math.random() * Math.PI * 2;
       this.rotSpeed = (Math.random() - 0.5) * 0.008;
-      this.alpha = Math.random() * 0.12 + 0.04;
+      this.alpha = Math.random() * 0.25 + 0.15;
       this.pulse = Math.random() * Math.PI * 2;
       this.color = Math.random() > 0.5 ? '#4f8ef7' : '#a259ff';
     }
@@ -100,7 +100,7 @@
       ctx.strokeStyle = this.color;
       ctx.fillStyle = this.color;
       ctx.lineWidth = 1.2;
-      ctx.shadowBlur = 10;
+      ctx.shadowBlur = 18;
       ctx.shadowColor = this.color;
 
       // Draw controller shape - simple rectangles for compatibility
