@@ -45,6 +45,9 @@ body {
 .page-wrap { position: relative; z-index: 1; }
 
 /* ── NAV ── */
+.logo-img {
+  height: 90px !important;
+}
 .navbar {
   position: sticky; top: 0; z-index: 200;
   background: rgba(7,8,15,0.82);

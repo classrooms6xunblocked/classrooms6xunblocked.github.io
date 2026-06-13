@@ -17,30 +17,30 @@
 
   const COLORS = ['#4f8ef7','#a259ff','#00e5ff','#ff4444'];
 
-  // Simple floating cubes
+  // Floating 3D wireframe cubes — large & bright
   const cubes = Array.from({length:18}, () => ({
     x: Math.random() * window.innerWidth,
     y: Math.random() * window.innerHeight,
-    size: Math.random() * 40 + 20,
+    size: Math.random() * 70 + 50,          // 50–120px (was 20–60)
     vx: (Math.random()-0.5) * 0.5,
     vy: (Math.random()-0.5) * 0.5,
     rot: Math.random() * Math.PI*2,
     rs: (Math.random()-0.5) * 0.02,
     color: ['#4f8ef7','#a259ff','#00e5ff'][Math.floor(Math.random()*3)],
-    alpha: Math.random() * 0.3 + 0.2,
+    alpha: Math.random() * 0.3 + 0.5,       // 0.5–0.8 (was 0.2–0.5)
   }));
 
-  // Simple floating controllers
+  // Floating game controllers — large & bright
   const controllers = Array.from({length:10}, () => ({
     x: Math.random() * window.innerWidth,
     y: Math.random() * window.innerHeight,
-    size: Math.random() * 50 + 30,
+    size: Math.random() * 55 + 45,          // 45–100px (was 30–80)
     vx: (Math.random()-0.5) * 0.4,
     vy: (Math.random()-0.5) * 0.4,
     rot: Math.random() * Math.PI*2,
     rs: (Math.random()-0.5) * 0.01,
     color: Math.random() > 0.5 ? '#4f8ef7' : '#a259ff',
-    alpha: Math.random() * 0.3 + 0.2,
+    alpha: Math.random() * 0.3 + 0.5,       // 0.5–0.8 (was 0.2–0.5)
   }));
 
   // Particles
@@ -206,8 +206,6 @@ let activeCategory = 'all';
 function goPlay(url) {
   if(url && url !== '#') { window.open(url, '_blank'); }
 }
-
- url !== '#') { window.open(url, '_blank'); } }
 
 function buildCard(g) {
   const badgeClass = g.badge === 'HOT' ? 'badge-hot' : g.badge === 'NEW' ? 'badge-new' : '';
