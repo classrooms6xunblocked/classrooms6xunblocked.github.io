@@ -3,20 +3,50 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact – Classroom 6x</title>
-  <meta name="robots" content="noindex, follow"/>
+  <title>Contact – Classroom 6x Unblocked</title>
+  <meta name="description" content="Get in touch with the Classroom 6x Unblocked team. Game requests, bug reports, DMCA notices — we reply within 48 hours."/>
+  <meta name="author" content="Ash Mercer"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://classrooms6xunblocked.github.io/pages/contact.html"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .contact-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      transition: border-color 0.2s;
+    }
+    .contact-box:hover { border-color: var(--accent); }
+    .contact-box h3 {
+      font-family: var(--font-head);
+      font-size: 1rem; font-weight: 800;
+      margin-bottom: 0.7rem; color: var(--accent3);
+    }
+    .contact-box p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
+    @media (max-width: 600px) { .contact-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 <canvas id="bgCanvas" aria-hidden="true"></canvas>
 <div class="page-wrap">
+
   <nav class="navbar">
-    <a href="../index.html" class="nav-logo"><span class="num">6</span> Classroom 6x</a>
+    <a href="../index.html" class="nav-logo">
+      <img src="../classrooms-6x-unblocked.webp" alt="Classroom 6x Unblocked" style="height:38px;width:auto;filter:drop-shadow(0 0 6px rgba(79,142,247,0.6))"/>
+    </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="../index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -27,29 +57,91 @@
     <a href="../index.html">Home</a><span class="sep">›</span><span class="current">Contact</span>
   </nav>
 
-  <section class="article-wrap" style="margin-top:2rem;">
-    <div class="article-inner">
-      <h2>Contact Us</h2>
-      <p>Have a question, game suggestion, or DMCA request? Reach out to the Classroom 6x team.</p>
-
-      <h3>General Inquiries</h3>
-      <p>For general questions about the platform, game suggestions, or partnership inquiries, please email us at: <strong>contact@classroom6x.com</strong></p>
-
-      <h3>DMCA & Copyright</h3>
-      <p>For copyright removal requests, see our <a href="dmca.html">DMCA Policy</a> page for full instructions.</p>
-
-      <h3>Response Time</h3>
-      <p>We aim to respond to all messages within 2–3 business days.</p>
-    </div>
+  <section class="page-hero">
+    <h1>Get in <span style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Touch</span></h1>
+    <p>Game requests, bug reports, or anything else — we reply within 48 hours.</p>
   </section>
 
+  <div class="section">
+
+    <div class="contact-grid">
+      <div class="contact-box">
+        <h3>🎮 Game Requests</h3>
+        <p>Know a game that should be on the site? Send the name and where it's hosted. If it runs clean on a Chromebook and fits the library, it'll go up.</p>
+      </div>
+      <div class="contact-box">
+        <h3>🐛 Bug Reports</h3>
+        <p>Game not loading? Something broken? Tell us which game, which browser, and what happened. We'll look into it and fix it if it's on our end.</p>
+      </div>
+      <div class="contact-box">
+        <h3>⚖️ DMCA and Copyright</h3>
+        <p>Copyright concern? Check the <a href="dmca.html" style="color:var(--accent);">DMCA page</a> first — it explains exactly what to send. We handle removal requests within 48 hours.</p>
+      </div>
+      <div class="contact-box">
+        <h3>🤝 General Inquiries</h3>
+        <p>Partnerships, feedback, or anything else. Reach out and we'll get back to you. No automated replies — a real person reads every message.</p>
+      </div>
+    </div>
+
+    <div class="author-card" style="margin-top:2.5rem;max-width:600px;">
+      <div class="author-card-head">
+        <div class="author-avatar-lg">AM</div>
+        <div>
+          <h3>Ash Mercer</h3>
+          <div class="role">Founder · Classroom 6x Unblocked</div>
+        </div>
+      </div>
+      <p>
+        Every message goes directly to Ash. Response time is usually within
+        48 hours — often faster. No support tickets, no bots, no runaround.
+      </p>
+      <p style="margin-top:0.8rem;color:var(--accent);font-weight:600;font-size:0.9rem;">
+        📧 contact via the form below
+      </p>
+    </div>
+
+    <!-- Contact Form -->
+    <div style="max-width:600px;margin-top:2rem;">
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="display:flex;flex-direction:column;gap:1rem;">
+        <div>
+          <label style="font-size:0.85rem;font-weight:600;color:var(--muted);display:block;margin-bottom:6px;">Your Name</label>
+          <input type="text" name="name" required placeholder="John Smith"
+            style="width:100%;padding:11px 14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:var(--font-body);font-size:0.9rem;outline:none;"/>
+        </div>
+        <div>
+          <label style="font-size:0.85rem;font-weight:600;color:var(--muted);display:block;margin-bottom:6px;">Email Address</label>
+          <input type="email" name="email" required placeholder="you@email.com"
+            style="width:100%;padding:11px 14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:var(--font-body);font-size:0.9rem;outline:none;"/>
+        </div>
+        <div>
+          <label style="font-size:0.85rem;font-weight:600;color:var(--muted);display:block;margin-bottom:6px;">Subject</label>
+          <select name="subject" style="width:100%;padding:11px 14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:var(--font-body);font-size:0.9rem;outline:none;">
+            <option>Game Request</option>
+            <option>Bug Report</option>
+            <option>DMCA / Copyright</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:0.85rem;font-weight:600;color:var(--muted);display:block;margin-bottom:6px;">Message</label>
+          <textarea name="message" required rows="5" placeholder="Tell us what's on your mind..."
+            style="width:100%;padding:11px 14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:var(--font-body);font-size:0.9rem;outline:none;resize:vertical;"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:fit-content;">Send Message ▶</button>
+      </form>
+    </div>
+
+  </div>
+
   <footer>
-    <div class="footer-bottom" style="max-width:1280px;margin:1.5rem auto 0;padding-top:1.5rem;border-top:1px solid var(--border);">
-      <span>© 2026 Classroom 6x · <strong>Ash Mercer</strong></span>
-      <span><a href="privacy.html">Privacy</a> · <a href="dmca.html">DMCA</a></span>
+    <div class="footer-bottom" style="max-width:1280px;margin:1.5rem auto 0;padding:1.5rem 2rem;border-top:1px solid var(--border);">
+      <span>© 2026 Classroom 6x Unblocked · <strong>Ash Mercer</strong></span>
+      <span><a href="privacy.html">Privacy</a> · <a href="dmca.html">DMCA</a> · <a href="contact.html">Contact</a></span>
     </div>
   </footer>
+
 </div>
 <script src="../js/main.js"></script>
+<script src="../js/cursor.js"></script>
 </body>
 </html>
