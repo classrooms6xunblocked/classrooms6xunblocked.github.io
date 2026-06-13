@@ -220,17 +220,13 @@
     drawConnections();
 
     // Draw cubes
-    cubes.forEach(c => { c.update(); c.draw(); });
+    cubes.forEach(c => { c.update(); c.draw(); ctx.globalAlpha = 1; ctx.shadowBlur = 0; });
 
     // Draw controllers
-    controllers.forEach(c => { c.update(); c.draw(); });
+    controllers.forEach(c => { c.update(); c.draw(); ctx.globalAlpha = 1; ctx.shadowBlur = 0; });
 
     // Draw particles
-    ctx.globalAlpha = 1;
-    particles.forEach(p => { p.update(); p.draw(); });
-
-    ctx.globalAlpha = 1;
-    ctx.shadowBlur = 0;
+    particles.forEach(p => { p.update(); p.draw(); ctx.globalAlpha = 1; ctx.shadowBlur = 0; });
 
     requestAnimationFrame(loop);
   }
@@ -283,7 +279,11 @@ const GAMES = [
 /* ── STATE ── */
 let activeCategory = 'all';
 
-function goPlay(url) { if(url function goPlay(url) { window.open(url, '_blank'); }function goPlay(url) { window.open(url, '_blank'); } url !== '#') { window.open(url, '_blank'); } }
+function goPlay(url) {
+  if(url && url !== '#') { window.open(url, '_blank'); }
+}
+
+ url !== '#') { window.open(url, '_blank'); } }
 
 function buildCard(g) {
   const badgeClass = g.badge === 'HOT' ? 'badge-hot' : g.badge === 'NEW' ? 'badge-new' : '';
