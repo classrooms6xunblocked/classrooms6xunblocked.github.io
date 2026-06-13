@@ -5,24 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!-- ═══ PRIMARY SEO ═══ -->
-  <title>Classroom 6x – Unblocked Games for School | Play Free Online</title>
-  <meta name="description" content="Classroom 6x offers 100+ free unblocked games you can play at school, work, or anywhere. No downloads, no installs. Browser games that work on Chromebooks instantly."/>
-  <meta name="keywords" content="classroom 6x, unblocked games, unblocked games 76, games at school, free browser games, chromebook games, classroom 6x unblocked"/>
+  <title>Classroom 6x Unblocked Games — Play Free Browser Games at School</title>
+  <meta name="description" content="Classroom 6x Unblocked lets you play 100+ free browser games at school on any Chromebook — no download, no login, no lag. Slope, 1v1.lol, Run 3 and more. Open a tab and play."/>
+  <meta name="keywords" content="classroom 6x unblocked, classroom 6x, unblocked games, play games at school, chromebook games, unblocked games classroom 6x, 6x classroom unblocked"/>
   <meta name="author" content="Ash Mercer"/>
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
-  <link rel="canonical" href="https://YOUR-GITHUB-USERNAME.github.io/"/>
+  <link rel="canonical" href="https://classrooms6xunblocked.github.io/"/>
 
   <!-- ═══ OPEN GRAPH ═══ -->
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Classroom 6x – Unblocked Games for School"/>
-  <meta property="og:description" content="Play 100+ free unblocked games instantly in your browser. No downloads needed. Works on Chromebook, laptop, and mobile."/>
-  <meta property="og:url" content="https://YOUR-GITHUB-USERNAME.github.io/"/>
-  <meta property="og:site_name" content="Classroom 6x"/>
+  <meta property="og:title" content="Classroom 6x Unblocked — Free Games at School, No Downloads"/>
+  <meta property="og:description" content="100+ free unblocked games that actually work on school Chromebooks. No installs, no logins. Just pick a game and play instantly."/>
+  <meta property="og:url" content="https://classrooms6xunblocked.github.io/"/>
+  <meta property="og:site_name" content="Classroom 6x Unblocked"/>
+  <meta property="og:image" content="https://classrooms6xunblocked.github.io/classrooms-6x-unblocked.webp"/>
 
   <!-- ═══ TWITTER CARD ═══ -->
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Classroom 6x – Unblocked Games for School"/>
-  <meta name="twitter:description" content="Play 100+ free unblocked games instantly. No downloads, no restrictions."/>
+  <meta name="twitter:title" content="Classroom 6x Unblocked — Free Games at School"/>
+  <meta name="twitter:description" content="Play 100+ free unblocked games instantly. Works on Chromebook, no downloads needed."/>
+  <meta name="twitter:image" content="https://classrooms6xunblocked.github.io/classrooms-6x-unblocked.webp"/>
 
   <!-- ═══ FONTS ═══ -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -31,21 +33,93 @@
   <!-- ═══ STYLES ═══ -->
   <link rel="stylesheet" href="css/style.css"/>
 
+  <style>
+    /* Logo animation */
+    .logo-img {
+      height: 48px;
+      width: auto;
+      filter: drop-shadow(0 0 8px rgba(79,142,247,0.6));
+      animation: logoGlow 2.5s ease-in-out infinite;
+      transition: transform 0.2s ease;
+    }
+    .logo-img:hover { transform: scale(1.08); }
+    @keyframes logoGlow {
+      0%,100% { filter: drop-shadow(0 0 6px rgba(79,142,247,0.5)); }
+      50%      { filter: drop-shadow(0 0 18px rgba(162,89,255,0.9)) drop-shadow(0 0 30px rgba(79,142,247,0.5)); }
+    }
+
+    /* Feature boxes */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem 2.5rem;
+    }
+    .feat-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.2rem;
+      text-align: center;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .feat-box:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .feat-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
+    .feat-box h3 { font-size: 0.92rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--text); }
+    .feat-box p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+
+    /* Article improvements */
+    .article-inner h2 { font-size: 1.6rem !important; }
+    .article-inner h3 { font-size: 1rem !important; }
+    .article-inner p { font-size: 0.93rem !important; }
+
+    /* Game highlight cards in article */
+    .game-highlight {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 0.8rem 1rem;
+      margin: 0.6rem 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .game-highlight .gh-emoji { font-size: 1.4rem; }
+    .game-highlight .gh-name { font-weight: 700; font-size: 0.88rem; }
+    .game-highlight .gh-desc { font-size: 0.78rem; color: var(--muted); }
+    .game-highlight .gh-play {
+      margin-left: auto;
+      background: var(--accent);
+      color: #fff;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+      .features { grid-template-columns: repeat(2, 1fr); padding: 0 1.2rem 2rem; }
+      .logo-img { height: 38px; }
+    }
+  </style>
+
   <!-- ═══ SCHEMA — WebSite ═══ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Classroom 6x",
-    "url": "https://YOUR-GITHUB-USERNAME.github.io/",
-    "description": "Free unblocked games for school. Play 100+ browser games instantly — no downloads required.",
-    "author": {
-      "@type": "Person",
-      "name": "Ash Mercer"
-    },
+    "name": "Classroom 6x Unblocked",
+    "url": "https://classrooms6xunblocked.github.io/",
+    "description": "Free unblocked games for school. Play 100+ browser games instantly on any Chromebook.",
+    "author": { "@type": "Person", "name": "Ash Mercer" },
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://YOUR-GITHUB-USERNAME.github.io/?s={search_term_string}",
+      "target": "https://classrooms6xunblocked.github.io/?s={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   }
@@ -56,18 +130,12 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Classroom 6x – The Best Unblocked Games Site for School",
-    "description": "A complete guide to playing free unblocked games at school using Classroom 6x.",
-    "author": {
-      "@type": "Person",
-      "name": "Ash Mercer"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Classroom 6x"
-    },
-    "datePublished": "2025-01-01",
-    "dateModified": "2026-06-01"
+    "headline": "Classroom 6x Unblocked — Free Browser Games That Actually Work at School",
+    "description": "A guide to playing free unblocked games at school using Classroom 6x Unblocked.",
+    "author": { "@type": "Person", "name": "Ash Mercer" },
+    "publisher": { "@type": "Organization", "name": "Classroom 6x Unblocked" },
+    "datePublished": "2026-01-01",
+    "dateModified": "2026-06-13"
   }
   </script>
 
@@ -79,43 +147,28 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is Classroom 6x?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Classroom 6x is a free online gaming platform where students can play 100+ unblocked browser games at school or work — no downloads or installs required."
-        }
+        "name": "What is Classroom 6x Unblocked?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Classroom 6x Unblocked is a free browser gaming platform where students can play 100+ games at school without downloads, logins, or restrictions." }
       },
       {
         "@type": "Question",
-        "name": "Are Classroom 6x games free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, every game on Classroom 6x is completely free to play with no subscriptions, paywalls, or hidden fees."
-        }
+        "name": "Does Classroom 6x Unblocked work on Chromebook?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every game runs directly in the browser using HTML5, making them fully compatible with Chromebooks and school-issued devices." }
       },
       {
         "@type": "Question",
-        "name": "Do Classroom 6x games work on Chromebook?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. All games run directly in the browser, making them perfectly compatible with Chromebooks and school-issued devices."
-        }
+        "name": "Is Classroom 6x Unblocked completely free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — every game is 100% free with no subscriptions, paywalls, or hidden fees. Ever." }
       },
       {
         "@type": "Question",
-        "name": "Is Classroom 6x the same as Unblocked Games 76?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Both are free unblocked gaming platforms. Classroom 6x focuses on a faster, cleaner browser experience with curated game selection."
-        }
+        "name": "Do I need to create an account to play?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No account, no email, no password. Open the site and start playing in seconds." }
       },
       {
         "@type": "Question",
-        "name": "Can I play Classroom 6x on mobile?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, Classroom 6x is fully optimized for mobile phones and tablets."
-        }
+        "name": "Is Classroom 6x Unblocked safe for students?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. All games are age-appropriate, no personal data is collected, and no account is required." }
       }
     ]
   }
@@ -127,7 +180,7 @@
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://YOUR-GITHUB-USERNAME.github.io/" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://classrooms6xunblocked.github.io/" }
     ]
   }
   </script>
@@ -141,8 +194,8 @@
 
   <!-- NAV -->
   <nav class="navbar">
-    <a href="index.html" class="nav-logo">
-      <span class="num">6</span> Classroom 6x
+    <a href="index.html" class="nav-logo" style="gap:10px;">
+      <img src="classrooms-6x-unblocked.webp" alt="Classroom 6x Unblocked Logo" class="logo-img"/>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Home</a></li>
@@ -162,25 +215,49 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-eyebrow"><span></span> 100+ Games • Always Free • No Login</div>
+    <div class="hero-eyebrow"><span></span> 100+ Games · Always Free · No Login Required</div>
     <h1>
-      Play <span class="grad">Unblocked Games</span><br/>
-      at School Instantly
+      <span class="grad">Classroom 6x Unblocked</span><br/>
+      Games for School
     </h1>
     <p class="hero-sub">
-      Classroom 6x is where students come to play free browser games with zero restrictions.
-      Works on every Chromebook, laptop, and phone — click and play in seconds.
+      Every game loads straight in your browser. No installs, no accounts, no restrictions.
+      Works on every Chromebook and school device — click and play in seconds.
     </p>
     <div class="hero-actions">
       <a href="#games" class="btn-primary">▶ Browse Games</a>
-      <a href="pages/about.html" class="btn-ghost">About Classroom 6x</a>
+      <a href="pages/about.html" class="btn-ghost">About Us</a>
     </div>
     <div class="hero-stats">
       <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Free Games</div></div>
-      <div class="stat"><div class="stat-num">0</div><div class="stat-label">Downloads Needed</div></div>
-      <div class="stat"><div class="stat-num">All</div><div class="stat-label">Devices Supported</div></div>
+      <div class="stat"><div class="stat-num">0</div><div class="stat-label">Downloads</div></div>
+      <div class="stat"><div class="stat-num">All</div><div class="stat-label">Devices Work</div></div>
     </div>
   </section>
+
+  <!-- FEATURE BOXES -->
+  <div class="features">
+    <div class="feat-box">
+      <div class="feat-icon">🚀</div>
+      <h3>Instant Play</h3>
+      <p>Click any game and it loads in seconds. Zero waiting, zero setup.</p>
+    </div>
+    <div class="feat-box">
+      <div class="feat-icon">💻</div>
+      <h3>Chromebook Ready</h3>
+      <p>HTML5 powered — works perfectly on every school Chromebook.</p>
+    </div>
+    <div class="feat-box">
+      <div class="feat-icon">🔒</div>
+      <h3>Safe and Clean</h3>
+      <p>No sketchy ads, no suspicious files. Just good games in a clean space.</p>
+    </div>
+    <div class="feat-box">
+      <div class="feat-icon">🆕</div>
+      <h3>Always Fresh</h3>
+      <p>New games added regularly. Always something different to try.</p>
+    </div>
+  </div>
 
   <!-- CATEGORY BAR -->
   <div class="cat-bar" id="games">
@@ -193,7 +270,7 @@
     <button class="cat-btn" onclick="setCategory('idle',this)">💤 Idle</button>
   </div>
 
-  <!-- TRENDING -->
+  <!-- GAMES GRID -->
   <div class="section">
     <div class="section-head">
       <h2>🔥 Trending Now</h2>
@@ -211,78 +288,136 @@
         <div class="author-avatar">AM</div>
         <div class="author-info">
           <div class="author-name">Ash Mercer</div>
-          <div class="author-date">Updated June 2026 · 6 min read</div>
+          <div class="author-date">Updated June 2026 · 8 min read</div>
         </div>
       </div>
 
-      <h2>Classroom 6x — The Best Unblocked Games Site for School in 2026</h2>
+      <h2>Classroom 6x Unblocked — Free Browser Games That Actually Work at School</h2>
 
       <p>
-        If you've ever tried opening a gaming site on a school network and hit a block page,
-        you already know the frustration. <strong>Classroom 6x</strong> was built specifically
-        to solve that problem — delivering a full library of free browser games that load
-        instantly on any device, including school-issued Chromebooks, without any downloads or
-        sign-ups required.
+        You open a gaming site at school and get a block page before it even loads. Every single time.
+        Most platforms that claim to be unblocked stop working the moment a school network filter catches up with them.
+        <strong>Classroom 6x Unblocked</strong> is built differently — every game here runs inside your browser
+        using HTML5, which means there are no external domains to block, no suspicious files, and nothing that
+        looks different from any other website you'd open in class.
       </p>
 
-      <h3>What Makes Classroom 6x Different from Unblocked Games 76?</h3>
       <p>
-        Sites like <strong>Unblocked Games 76</strong> have been popular for years, but they
-        often come with cluttered interfaces and slow load times. Classroom 6x takes a cleaner
-        approach — every game is hand-picked, thumbnails are optimized, and pages load fast
-        even on slow school Wi-Fi. The result is a smoother, faster experience from the moment
-        you arrive.
+        Open a tab. Pick a game. You're playing in seconds. That's the entire experience — and it works
+        on every Chromebook, laptop, and phone without exception.
       </p>
 
-      <h3>Games That Actually Work on Chromebooks</h3>
+      <h3>Why School Networks Block Gaming Sites — and Why This One Gets Through</h3>
       <p>
-        Chromebooks can't install traditional software, which rules out most gaming options.
-        Classroom 6x runs entirely in the browser using modern HTML5 technology, which means
-        every single game works natively on Chromebooks. Whether you're playing
-        <strong>Slope</strong>, <strong>1v1.lol</strong>, or <strong>Moto X3M</strong>, there's
-        no setup, no plugins, and no waiting — just instant gameplay.
+        Most school network filters block gaming sites based on domain reputation and file types they detect.
+        Sites that host game files on suspicious CDNs or load content from flagged domains get caught instantly.
+        Classroom 6x Unblocked sidesteps that entirely. Games run as pure browser code — the same technology
+        that powers Google Docs and YouTube. From the network's perspective, it looks like any other webpage.
+        That's not a workaround. That's just how HTML5 games work.
       </p>
 
-      <h3>Popular Game Categories</h3>
+      <h3>Most Played Games Right Now</h3>
+      <p>The library spans every genre students actually want to play. These are the ones that keep pulling people back:</p>
+
+      <div class="game-highlight">
+        <div class="gh-emoji">🔵</div>
+        <div><div class="gh-name">Slope</div><div class="gh-desc">Ball physics on a neon slope. Sounds simple. Absolutely brutal after level 3.</div></div>
+        <a href="https://classrooms-6x.com/game/slope" target="_blank" class="gh-play">Play Now</a>
+      </div>
+      <div class="game-highlight">
+        <div class="gh-emoji">🔫</div>
+        <div><div class="gh-name">1v1.lol</div><div class="gh-desc">Fortnite-style building and shooting in a browser tab. Skip the 100GB download.</div></div>
+        <a href="https://classrooms-6x.com/game/1v1-lol" target="_blank" class="gh-play">Play Now</a>
+      </div>
+      <div class="game-highlight">
+        <div class="gh-emoji">🏃</div>
+        <div><div class="gh-name">Run 3</div><div class="gh-desc">Space tunnels, gravity shifts, and collapsing platforms. A school break classic.</div></div>
+        <a href="https://classrooms-6x.com/game/run-3" target="_blank" class="gh-play">Play Now</a>
+      </div>
+      <div class="game-highlight">
+        <div class="gh-emoji">🏍️</div>
+        <div><div class="gh-name">Moto X3M</div><div class="gh-desc">Bike obstacle courses with spinning blades and explosions. Each level under 3 minutes.</div></div>
+        <a href="https://classrooms-6x.com/game/moto-x3m" target="_blank" class="gh-play">Play Now</a>
+      </div>
+      <div class="game-highlight">
+        <div class="gh-emoji">🍪</div>
+        <div><div class="gh-name">Cookie Clicker</div><div class="gh-desc">The original idle game. Started a quick session, ended up 30 minutes in. Every time.</div></div>
+        <a href="https://classrooms-6x.com/game/cookie-clicker" target="_blank" class="gh-play">Play Now</a>
+      </div>
+      <div class="game-highlight">
+        <div class="gh-emoji">🐵</div>
+        <div><div class="gh-name">Monkey Mart</div><div class="gh-desc">Run a supermarket as a monkey. Weirdly satisfying and hard to close the tab on.</div></div>
+        <a href="https://classrooms-6x.com/game/monkey-mart" target="_blank" class="gh-play">Play Now</a>
+      </div>
+
+      <h3>Built for Chromebooks — Tested on School Hardware</h3>
       <p>
-        The library spans every type of game students love. <strong>Action games</strong> like
-        Run 3 and OvO test your reflexes and timing. <strong>Racing games</strong> like Drift
-        Hunters and Drive Mad deliver high-speed thrills. <strong>Multiplayer games</strong>
-        like Shell Shockers and Rooftop Snipers let you compete against friends in the same
-        room. And for when you just want to relax, <strong>idle games</strong> like Cookie
-        Clicker and Monkey Mart keep you entertained with minimal effort.
+        Chromebooks can't install software. App stores are locked. Most gaming options simply don't exist
+        on school-issued devices. Every game on <strong>classroom 6x unblocked</strong> runs natively in Chrome
+        without plugins, extensions, or downloads. Tested on school hardware — loads clean with zero performance issues,
+        even on older Chromebooks running on slow school WiFi.
+      </p>
+      <p>
+        Each game session wraps up in under five minutes if needed. No save states to worry about,
+        no progress lost, no reason a quick break has to turn into a long commitment.
+        Play a round of Slope, close the tab, get back to class. Simple.
       </p>
 
-      <h3>No Account, No Data, No Problem</h3>
+      <h3>Every Genre Students Actually Want</h3>
       <p>
-        Classroom 6x doesn't ask for your email, name, or any personal information. There's no
-        account creation, no tracking, and no profiling. Open the site, pick a game, and play.
-        It's that simple — and that's exactly how a school gaming site should work.
+        Action games like Run 3 and OvO reward fast reflexes in short bursts.
+        Racing games like Drift Hunters and Moto X3M push for completion and speed.
+        Multiplayer games like Shell Shockers and Rooftop Snipers work with a friend on the same WiFi.
+        Idle games like Cookie Clicker and Monkey Mart run themselves and just need a tab open.
+        Puzzle games like Fireboy and Watergirl reward thinking over twitching.
+      </p>
+      <p>
+        The category filter at the top of the game grid makes it easy to find exactly what fits
+        the five minutes you have available.
+      </p>
+
+      <h3>How Classroom 6x Compares to Unblocked Games 76</h3>
+      <p>
+        Unblocked Games 76 has been around for years. It works — but the interface is cluttered,
+        load times are inconsistent, and many titles are outdated Flash games that no longer run properly.
+        <strong>Unblocked games 6x</strong> focuses on HTML5 only — games that load fast, look good,
+        and actually run in 2026. Fewer broken titles, faster performance, cleaner design.
+      </p>
+
+      <h3>No Account. No Data. No Trace.</h3>
+      <p>
+        There is no sign-up form. No email field. No password to remember. Nothing gets saved to your
+        device and nothing leaves a trace after you close the tab. Open the site, pick a game, play,
+        close it. That's the complete loop — and it leaves nothing behind.
       </p>
 
       <!-- FAQ -->
-      <h3>Frequently Asked Questions</h3>
+      <h3>Questions Students Actually Ask</h3>
 
       <div class="faq-item">
-        <button class="faq-q">Is Classroom 6x free to use? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Yes — every game on Classroom 6x is completely free. No subscriptions, no paywalls, no hidden fees. Ever.</div>
+        <button class="faq-q">Does Classroom 6x Unblocked actually work on my school Chromebook? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes — every game here is HTML5, which runs natively in Chrome with nothing extra needed. Tested on school hardware. Loads clean, plays smooth, no performance issues.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Does it work on a Chromebook? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Absolutely. Every game runs in the browser using HTML5, which means full compatibility with Chromebooks and any school-issued device.</div>
+        <button class="faq-q">Is this completely free or is there a catch? <span class="faq-icon">+</span></button>
+        <div class="faq-a">No catch. Every game is free. No subscriptions, no premium tiers, no paywalls. The whole library, always free.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Is Classroom 6x safe for students? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Yes. Games are carefully selected to be age-appropriate and school-friendly. No personal data is collected and no account is required.</div>
+        <button class="faq-q">Do I need to create an account? <span class="faq-icon">+</span></button>
+        <div class="faq-a">No account, no email, no password. Open the site and start playing immediately. That's it.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">How is this different from Unblocked Games 76? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Classroom 6x focuses on speed, clean design, and a curated game library. You get fewer distractions and faster load times compared to older platforms.</div>
+        <button class="faq-q">Will the school network block this site? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Games here run as pure browser code — the same technology as any school-approved website. No suspicious domains, no flagged file types. Most school networks pass it without issue.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Can I play on my phone? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Yes, Classroom 6x is fully mobile-optimized. All games and the site itself work smoothly on smartphones and tablets.</div>
+        <button class="faq-q">How often are new games added? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Regularly. The library keeps growing. Check back often — there's usually something new in the grid worth trying.</div>
       </div>
+
+      <p style="margin-top:2rem;font-size:0.82rem;color:var(--muted);">
+        Written by <strong style="color:var(--text);">Ash Mercer</strong> · Gaming platform reviewer and web publisher · Updated June 2026
+      </p>
 
     </div>
   </section>
@@ -291,10 +426,8 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo" style="text-decoration:none;">
-          <span class="num">6</span> Classroom 6x
-        </a>
-        <p>Free unblocked games for students and casual players. Play instantly in your browser — no downloads, no accounts, no restrictions.</p>
+        <img src="classrooms-6x-unblocked.webp" alt="Classroom 6x Unblocked" style="height:40px;width:auto;margin-bottom:0.8rem;filter:drop-shadow(0 0 6px rgba(79,142,247,0.4))"/>
+        <p>Free unblocked games for students. Play instantly on any Chromebook — no downloads, no accounts, no restrictions.</p>
       </div>
       <div class="footer-col">
         <h4>Categories</h4>
@@ -308,13 +441,14 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Popular Games</h4>
+        <h4>Top Games</h4>
         <ul>
           <li><a href="https://classrooms-6x.com/game/slope" target="_blank">Slope</a></li>
           <li><a href="https://classrooms-6x.com/game/1v1-lol" target="_blank">1v1.lol</a></li>
           <li><a href="https://classrooms-6x.com/game/run-3" target="_blank">Run 3</a></li>
           <li><a href="https://classrooms-6x.com/game/drift-hunters" target="_blank">Drift Hunters</a></li>
           <li><a href="https://classrooms-6x.com/game/cookie-clicker" target="_blank">Cookie Clicker</a></li>
+          <li><a href="https://classrooms-6x.com/game/monkey-mart" target="_blank">Monkey Mart</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -328,7 +462,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Classroom 6x · Written by <strong>Ash Mercer</strong></span>
+      <span>© 2026 Classroom 6x Unblocked · Written by <strong>Ash Mercer</strong></span>
       <span>
         <a href="pages/privacy.html">Privacy</a> ·
         <a href="pages/dmca.html">DMCA</a> ·
@@ -337,7 +471,7 @@
     </div>
   </footer>
 
-</div><!-- .page-wrap -->
+</div>
 
 <script src="js/main.js"></script>
 </body>
