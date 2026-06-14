@@ -95,6 +95,49 @@
       font-weight: 700; cursor: pointer; font-size: 0.9rem;
     }
 
+    /* Similar Games Cards */
+    .similar-games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+    .sim-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-decoration: none;
+      transition: border-color .2s, transform .2s;
+    }
+    .sim-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .sim-thumb {
+      width: 100%;
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .sim-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .sim-info { padding: 0.75rem 0.9rem 0.4rem; flex: 1; }
+    .sim-name { font-weight: 700; font-size: 0.95rem; color: var(--text); margin-bottom: 0.3rem; }
+    .sim-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+    .sim-play {
+      display: block;
+      margin: 0.6rem 0.9rem 0.9rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      text-align: center;
+      width: fit-content;
+    }
+
     /* Most Played strip */
     .mp-section {
       width: 100%;
@@ -362,22 +405,28 @@
       </div>
 
       <!-- 11. SIMILAR GAMES — 2 -->
-      <h3>If Slope Has You Hooked, Try These</h3>
-      <div class="game-highlight">
-        <div class="gh-emoji">🌌</div>
-        <div>
-          <div class="gh-name">Rolling Sky</div>
-          <div class="gh-desc">Same ball-on-track concept but with rhythmic obstacles synced to music. Harder to read, different skill entirely.</div>
-        </div>
-        <a href="#" class="gh-play">Play</a>
-      </div>
-      <div class="game-highlight">
-        <div class="gh-emoji">🔵</div>
-        <div>
-          <div class="gh-name">Sky Balls 3D</div>
-          <div class="gh-desc">3D ball runner with a vertical twist. More forgiving than Slope early on but gets brutal fast.</div>
-        </div>
-        <a href="#" class="gh-play">Play</a>
+      <h3 id="similarHeading"></h3>
+      <div class="similar-games-grid" id="similarGames">
+        <a href="#" class="sim-card">
+          <div class="sim-thumb" style="background:linear-gradient(135deg,#1a1a3e,#0d0d2b);">
+            <span style="font-size:2rem;">🌌</span>
+          </div>
+          <div class="sim-info">
+            <div class="sim-name">Rolling Sky</div>
+            <div class="sim-desc">Same ball-on-track concept but rhythmic obstacles sync to music. Different skill entirely.</div>
+          </div>
+          <span class="sim-play">Play ▶</span>
+        </a>
+        <a href="#" class="sim-card">
+          <div class="sim-thumb" style="background:linear-gradient(135deg,#0d1f3e,#0a0a2b);">
+            <span style="font-size:2rem;">🔵</span>
+          </div>
+          <div class="sim-info">
+            <div class="sim-name">Sky Balls 3D</div>
+            <div class="sim-desc">3D ball runner with a vertical twist. More forgiving early on but gets brutal fast.</div>
+          </div>
+          <span class="sim-play">Play ▶</span>
+        </a>
       </div>
 
       <!-- 12. AUTHOR -->
@@ -392,7 +441,7 @@
   <div class="modal-overlay" id="reportModal">
     <div class="modal-box">
       <h3>⚑ Report an Issue</h3>
-      <form id="reportForm" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+      <form id="reportForm" action="https://formspree.io/f/meewvlor" method="POST">
         <input type="hidden" name="game" value="Slope"/>
         <input type="hidden" name="_replyto" value="meetjameswilliam@gmail.com"/>
         <select name="issue" required>
@@ -499,6 +548,22 @@
   });
 </script>
 <script>
+// Rotating similar games heading
+const SIMILAR_HEADINGS = [
+  "If Slope Has You Hooked, Try These",
+  "More Games Worth Playing",
+  "You Might Also Like",
+  "Other Games in This Lane",
+  "Keep the Tab Open — Try These Next",
+  "Same Energy, Different Game",
+  "Still Got Time? These Are Good",
+  "Games That Hit the Same Way"
+];
+(function(){
+  const el = document.getElementById('similarHeading');
+  if(el) el.textContent = SIMILAR_HEADINGS[Math.floor(Math.random() * SIMILAR_HEADINGS.length)];
+})();
+
 // Most Played Games Strip
 const MP_GAMES = [
   { name: "Run 3",            href: "game-run3.html",      img: "https://unblockedgames-gplus.s3.us-east-2.amazonaws.com/run-3-classroom-6x.webp" },
