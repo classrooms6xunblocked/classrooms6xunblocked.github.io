@@ -262,10 +262,22 @@ function initNav() {
 
 /* ── FAQ ACCORDION ── */
 function initFaq() {
+  // Skip if game page already initialized FAQ
+  if (document.body.dataset.faqInit) return;
   document.querySelectorAll('.faq-q').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      item.classList.toggle('open');
+    btn.addEventListener('click', function() {
+      const item = this.closest('.faq-item');
+      const icon = this.querySelector('.faq-icon');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        const ic = i.querySelector('.faq-icon');
+        if (ic) ic.textContent = '+';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        if (icon) icon.textContent = '−';
+      }
     });
   });
 }
