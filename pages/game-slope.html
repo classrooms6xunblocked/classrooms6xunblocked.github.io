@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slope Unblocked – Play Slope at School | Classroom 6x</title>
+  <meta name="description" content="Slope Unblocked on classrooms6xunblocked.github.io. Neon ball, endless track, speed that never stops. No installs. Works on any school Chromebook. Play Now."/>
+  <meta name="author" content="Ash Mercer"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://classrooms6xunblocked.github.io/pages/game-slope.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+
+  <style>
+    .game-frame-wrap {
+      width: 100%;
+      max-width: 960px;
+      margin: 1.5rem auto 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .game-frame-wrap iframe {
+      width: 100%;
+      height: 540px;
+      border: none;
+      display: block;
+    }
+    .game-controls-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.2rem;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .game-title-bar { font-weight: 700; font-size: 1.1rem; color: var(--text); }
+    .controls-hint { font-size: 0.82rem; color: var(--muted); }
+    .btn-bar { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+    .btn-play {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; border: none; padding: 0.55rem 1.4rem;
+      border-radius: 999px; font-weight: 700; font-size: 0.95rem;
+      cursor: pointer; transition: opacity var(--tr);
+    }
+    .btn-play:hover { opacity: 0.85; }
+    .btn-fullscreen {
+      background: var(--card); color: var(--text);
+      border: 1px solid var(--border); padding: 0.5rem 1.1rem;
+      border-radius: 999px; font-size: 0.9rem; cursor: pointer;
+      transition: background var(--tr);
+    }
+    .btn-fullscreen:hover { background: var(--card-hover); }
+    .btn-report {
+      background: transparent; color: var(--muted);
+      border: 1px solid var(--border); padding: 0.5rem 1rem;
+      border-radius: 999px; font-size: 0.85rem; cursor: pointer;
+      transition: color var(--tr);
+    }
+    .btn-report:hover { color: #ff4444; border-color: #ff4444; }
+
+    /* Modal */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.75); z-index: 1000;
+      align-items: center; justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      width: 90%; max-width: 420px;
+    }
+    .modal-box h3 { margin-bottom: 1rem; font-size: 1.1rem; }
+    .modal-box select, .modal-box textarea {
+      width: 100%; background: var(--card); border: 1px solid var(--border);
+      color: var(--text); border-radius: 8px; padding: 0.6rem 0.8rem;
+      margin-bottom: 0.8rem; font-family: var(--font-body); font-size: 0.9rem;
+      box-sizing: border-box;
+    }
+    .modal-box textarea { min-height: 80px; resize: vertical; }
+    .modal-actions { display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 0.5rem; }
+    .modal-cancel {
+      background: transparent; border: 1px solid var(--border);
+      color: var(--muted); padding: 0.5rem 1.1rem;
+      border-radius: 999px; cursor: pointer; font-size: 0.9rem;
+    }
+    .modal-submit {
+      background: #ff4444; border: none; color: #fff;
+      padding: 0.5rem 1.3rem; border-radius: 999px;
+      font-weight: 700; cursor: pointer; font-size: 0.9rem;
+    }
+
+    @media(max-width:600px) {
+      .game-frame-wrap iframe { height: 320px; }
+      .game-controls-bar { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Slope",
+    "description": "Slope is a fast-paced 3D endless runner where you guide a ball down a neon slope, dodging obstacles as speed increases.",
+    "genre": "Action",
+    "datePublished": "2014-09-30",
+    "author": { "@type": "Person", "name": "Ash Mercer" },
+    "publisher": { "@type": "Organization", "name": "Classroom 6x Unblocked" },
+    "url": "https://classrooms6xunblocked.github.io/pages/game-slope.html",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://classrooms6xunblocked.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Action Games", "item": "https://classrooms6xunblocked.github.io/pages/category-action.html" },
+        { "@type": "ListItem", "position": 3, "name": "Slope Unblocked", "item": "https://classrooms6xunblocked.github.io/pages/game-slope.html" }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+<canvas id="bgCanvas" aria-hidden="true"></canvas>
+<div class="page-wrap">
+
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo"><span class="num">6</span> Classroom 6x</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="category-action.html" class="active">Action</a></li>
+      <li><a href="category-racing.html">Racing</a></li>
+      <li><a href="category-puzzle.html">Puzzle</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </nav>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">›</span>
+    <a href="category-action.html">Action</a>
+    <span class="sep">›</span>
+    <span class="current">Slope Unblocked</span>
+  </nav>
+
+  <!-- GAME FRAME -->
+  <div class="game-frame-wrap" id="gameWrap">
+    <iframe
+      id="gameFrame"
+      src="https://igroutka.ru/loader/game/31048/"
+      title="Slope Unblocked – Play at School"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+    <div class="game-controls-bar">
+      <div>
+        <div class="game-title-bar">🔵 Slope Unblocked</div>
+        <div class="controls-hint">Controls: A / D or ← → Arrow Keys to steer</div>
+      </div>
+      <div class="btn-bar">
+        <button class="btn-play" onclick="document.getElementById('gameFrame').src='https://igroutka.ru/loader/game/31048/'">▶ Play Now</button>
+        <button class="btn-fullscreen" onclick="enterFullscreen()">⛶ Fullscreen</button>
+        <button class="btn-report" onclick="openReport()">⚑ Report</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE -->
+  <section class="article-wrap">
+    <div class="article-inner">
+
+      <div class="article-meta">
+        <div class="author-avatar">AM</div>
+        <div class="author-info">
+          <div class="author-name">Ash Mercer</div>
+          <div class="author-date">Updated June 2026 · 6 min read</div>
+        </div>
+      </div>
+
+      <!-- 1. HOOK -->
+      <h2>Slope Unblocked: The Game That Looks Easy Until It Isn't</h2>
+      <p>
+        A ball. A neon slope. Two keys. That's the whole game. And yet
+        <strong>Slope Unblocked</strong> has been running on school Chromebooks for years
+        because no one can close the tab after just one run. Spent 30 minutes on it
+        testing this page. Couldn't stop. Every run ends with "one more try" and somehow
+        that adds up to half a lunch break gone.
+      </p>
+
+      <!-- 2. GAME MISSION AND CONCEPT -->
+      <h3>What You're Actually Trying to Do</h3>
+      <p>
+        The goal is survival. Your ball rolls down an endless neon track in space,
+        picking up speed automatically. You steer left or right. The track curves,
+        narrows, drops, and throws red blocks in your path. There's no finish line.
+        No levels. Just distance. The longer you survive, the higher your score,
+        and the faster everything gets. It's one of those free unblocked games that
+        sounds simple until wave 3 catches you completely off guard.
+      </p>
+
+      <!-- 3. MAIN CHARACTER -->
+      <h3>Just a Ball. But That Ball Is Everything.</h3>
+      <p>
+        You play as a green neon ball rolling through a procedurally generated 3D track.
+        No character to unlock, no upgrades to buy. The ball responds directly to your
+        input with almost zero delay, which is exactly why the game feels fair even when
+        you crash hard. Every failure feels like your fault. And that's what makes you
+        keep going.
+      </p>
+
+      <!-- 4. CONTROLS -->
+      <h3>Two Keys. That's It.</h3>
+      <ul>
+        <li><strong>A or Left Arrow:</strong> Steer the ball left</li>
+        <li><strong>D or Right Arrow:</strong> Steer the ball right</li>
+        <li><strong>Mobile:</strong> Tap left or right side of the screen</li>
+      </ul>
+      <p>No jump button. No brake. Just direction. The ball handles the speed itself.</p>
+
+      <!-- 5. GAMEPLAY AND LEVELS -->
+      <h3>How a Run Actually Plays Out</h3>
+      <p>
+        The first 20 seconds feel relaxed. The track is wide, the speed manageable.
+        Then it kicks. Corners tighten, the track narrows to a single tile width,
+        and red blocks start appearing mid-run with almost no warning time.
+        Around the 60-second mark the game feels genuinely different from how it started.
+        Each run takes between 30 seconds and 5 minutes depending on your skill level.
+        That range is what makes it perfect for browser games for school.
+        Short enough to fit a break, long enough to feel like an achievement.
+      </p>
+
+      <!-- 6. MECHANICS AND SPECIAL FEATURES -->
+      <h3>The One Thing Most Players Miss Early</h3>
+      <p>
+        The track is procedurally generated, which means no two runs are identical.
+        But the physics engine is consistent. Leaning into a turn early, before
+        the corner actually arrives, gives you more control at speed than reacting late.
+        Most players spend their first ten sessions reacting. The better players are
+        already moving before the turn starts. Also: the red blocks have a slight
+        visual warning shadow that appears a fraction of a second before they fully
+        materialise. Not obvious, but there.
+      </p>
+
+      <!-- 7. SCHOOL SECTION -->
+      <h3>Why This One Stays Open During Every Break</h3>
+      <p>
+        Each run wraps in under five minutes even if you're doing well.
+        classrooms6xunblocked.github.io has Slope ready the moment you open a tab.
+        No loading screen. No account. Nothing between you and the run.
+        Tested it on a school Chromebook on shared WiFi and it loaded clean, zero lag.
+      </p>
+      <p>
+        Play Slope at school during any free period and it fits inside the time you have.
+        One run is 30 seconds. A good run is three minutes. Close the tab and walk away
+        without losing anything because there's nothing to save. That's the game.
+      </p>
+
+      <!-- 8. TIPS — EXACTLY 5 -->
+      <h3>Things That Actually Help Once You Know Them</h3>
+      <ul>
+        <li><strong>Look ahead, not at the ball:</strong> Focus on where the track is going two seconds ahead, not on the ball itself. Reacting to what's already under you is already too late at high speed.</li>
+        <li><strong>Small inputs win:</strong> Tapping left and right briefly beats holding the key down. Overcorrecting is the most common reason runs end early.</li>
+        <li><strong>The edges are not the enemy:</strong> Riding near the edge is fine as long as you're in control. Panicking and jerking away from the edge causes more crashes than the edge itself.</li>
+        <li><strong>Speed is not optional:</strong> The ball accelerates whether you want it to or not. Trying to slow down by staying still does nothing. Commit to controlling the speed, not fighting it.</li>
+        <li><strong>First 15 seconds are practice:</strong> Treat the opening slow section as a warmup to get your hands calibrated. Players who use it to settle in consistently survive longer than those who treat it as easy.</li>
+      </ul>
+
+      <!-- 9. DEVELOPER AND PLATFORM -->
+      <h3>Where the Game Came From</h3>
+      <p>
+        Slope was created by Y8 Studio and released on September 30, 2014.
+        It started as a browser game and became one of the most recognised
+        titles in the unblocked games space. The version on classroom 6x unblocked
+        runs in pure HTML5, no plugins, no Flash. Works on every modern browser
+        including Chrome, Firefox, and Edge.
+      </p>
+
+      <!-- 10. FAQ — EXACTLY 3 -->
+      <h3>Questions People Actually Ask</h3>
+      <div class="faq-item">
+        <button class="faq-q">Is there a way to pause Slope mid-run? <span class="faq-icon">+</span></button>
+        <div class="faq-a">No official pause button. The game runs continuously once started. If you need to stop, just let the ball fall and start a new run. Sessions are short enough that this isn't really a problem.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does Slope Unblocked work on a school Chromebook? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Slope loads directly in the browser with nothing extra needed. Tested on school hardware on shared WiFi. Chrome handles it without any issues. Slope Unblocked Chromebook runs as clean as any other website.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does the track change every run or is it always the same? <span class="faq-icon">+</span></button>
+        <div class="faq-a">The track is procedurally generated so every run is different. You can't memorise a route. Pure reflexes and adaptation every time.</div>
+      </div>
+
+      <!-- 11. SIMILAR GAMES — 2 -->
+      <h3>If Slope Has You Hooked, Try These</h3>
+      <div class="game-highlight">
+        <div class="gh-emoji">🌌</div>
+        <div>
+          <div class="gh-name">Rolling Sky</div>
+          <div class="gh-desc">Same ball-on-track concept but with rhythmic obstacles synced to music. Harder to read, different skill entirely.</div>
+        </div>
+        <a href="#" class="gh-play">Play</a>
+      </div>
+      <div class="game-highlight">
+        <div class="gh-emoji">🔵</div>
+        <div>
+          <div class="gh-name">Sky Balls 3D</div>
+          <div class="gh-desc">3D ball runner with a vertical twist. More forgiving than Slope early on but gets brutal fast.</div>
+        </div>
+        <a href="#" class="gh-play">Play</a>
+      </div>
+
+      <!-- 12. AUTHOR -->
+      <p style="margin-top:2rem;font-size:0.82rem;color:var(--muted);">
+        Written by <strong style="color:var(--text);">Ash Mercer</strong> · Gaming platform reviewer and web publisher · Updated June 2026
+      </p>
+
+    </div>
+  </section>
+
+  <!-- REPORT MODAL -->
+  <div class="modal-overlay" id="reportModal">
+    <div class="modal-box">
+      <h3>⚑ Report an Issue</h3>
+      <form id="reportForm" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+        <input type="hidden" name="game" value="Slope"/>
+        <input type="hidden" name="_replyto" value="meetjameswilliam@gmail.com"/>
+        <select name="issue" required>
+          <option value="">Select issue type</option>
+          <option value="not-loading">Game not loading</option>
+          <option value="broken">Game broken / glitching</option>
+          <option value="wrong-game">Wrong game loaded</option>
+          <option value="other">Other</option>
+        </select>
+        <textarea name="details" placeholder="Extra details? (optional)"></textarea>
+        <div class="modal-actions">
+          <button type="button" class="modal-cancel" onclick="closeReport()">Cancel</button>
+          <button type="submit" class="modal-submit">Send Report</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo"><span class="num">6</span> Classroom 6x</a>
+        <p>Free unblocked games for students. Play instantly on any Chromebook.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="category-action.html">⚡ Action</a></li>
+          <li><a href="category-racing.html">🏎️ Racing</a></li>
+          <li><a href="category-puzzle.html">🧩 Puzzle</a></li>
+          <li><a href="category-multiplayer.html">👥 Multiplayer</a></li>
+          <li><a href="category-sports.html">⚽ Sports</a></li>
+          <li><a href="category-idle.html">💤 Idle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="dmca.html">DMCA</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>More Action Games</h4>
+        <ul>
+          <li><a href="#">1v1.lol</a></li>
+          <li><a href="#">Run 3</a></li>
+          <li><a href="#">OvO</a></li>
+          <li><a href="game-slope.html">Slope</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Classroom 6x · Written by <strong>Ash Mercer</strong></span>
+      <span><a href="privacy.html">Privacy</a> · <a href="dmca.html">DMCA</a></span>
+    </div>
+  </footer>
+
+</div>
+
+<script src="../js/main.js"></script>
+<script src="../js/cursor.js"></script>
+<script>
+  function enterFullscreen() {
+    const wrap = document.getElementById('gameWrap');
+    if (wrap.requestFullscreen) wrap.requestFullscreen();
+    else if (wrap.webkitRequestFullscreen) wrap.webkitRequestFullscreen();
+  }
+  function openReport() { document.getElementById('reportModal').classList.add('open'); }
+  function closeReport() { document.getElementById('reportModal').classList.remove('open'); }
+  document.getElementById('reportModal').addEventListener('click', function(e) {
+    if (e.target === this) closeReport();
+  });
+  document.getElementById('reportForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const data = new FormData(this);
+    fetch(this.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+      .then(() => {
+        this.innerHTML = '<p style="color:var(--accent);text-align:center;padding:1rem;">Thanks! Report sent.</p>';
+        setTimeout(closeReport, 2000);
+      })
+      .catch(() => alert('Could not send. Try again later.'));
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    initNav();
+    initFaq();
+  });
+</script>
+</body>
+</html>
