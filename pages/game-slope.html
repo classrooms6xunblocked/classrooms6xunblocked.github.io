@@ -95,6 +95,26 @@
       font-weight: 700; cursor: pointer; font-size: 0.9rem;
     }
 
+    /* Category tags */
+    .game-cat-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 0.8rem 0 1.5rem;
+    }
+    .cat-tag {
+      background: rgba(79,142,247,0.1);
+      border: 1px solid rgba(79,142,247,0.3);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .cat-tag:hover { background: rgba(79,142,247,0.2); }
+
     /* Similar Games Cards */
     .similar-games-grid {
       display: grid;
@@ -289,6 +309,13 @@
           <div class="author-name">Ash Mercer</div>
           <div class="author-date">Updated June 2026 · 6 min read</div>
         </div>
+      </div>
+
+      <!-- Category tags -->
+      <div class="game-cat-tags">
+        <a href="category-action.html" class="cat-tag">⚡ Action</a>
+        <a href="category-action.html" class="cat-tag">🎯 Skill</a>
+        <a href="category-action.html" class="cat-tag">🏃 Running</a>
       </div>
 
       <!-- 1. HOOK -->
@@ -543,8 +570,17 @@
       .catch(() => alert('Could not send. Try again later.'));
   });
   document.addEventListener('DOMContentLoaded', () => {
-    initNav();
-    initFaq();
+    // FAQ fix — inline to avoid main.js conflict
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+        btn.querySelector('.faq-icon').textContent = item.classList.contains('open') ? '−' : '+';
+      });
+    });
+    if (typeof initNav === 'function') initNav();
   });
 </script>
 <script>
