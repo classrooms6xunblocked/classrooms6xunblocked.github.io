@@ -576,18 +576,19 @@
       })
       .catch(() => alert('Could not send. Try again later.'));
   });
-  // FAQ — direct init, no DOMContentLoaded needed (script runs after elements)
+  // Mark FAQ as handled so main.js skips it
+  document.body.dataset.faqInit = 'true';
+
+  // FAQ
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', function() {
       const item = this.closest('.faq-item');
       const icon = this.querySelector('.faq-icon');
       const isOpen = item.classList.contains('open');
-      // close all
       document.querySelectorAll('.faq-item').forEach(i => {
         i.classList.remove('open');
         i.querySelector('.faq-icon').textContent = '+';
       });
-      // open clicked if was closed
       if (!isOpen) {
         item.classList.add('open');
         icon.textContent = '−';
@@ -598,21 +599,8 @@
   if (typeof initNav === 'function') initNav();
 </script>
 <script>
-// Rotating similar games heading
-const SIMILAR_HEADINGS = [
-  "If Slope Has You Hooked, Try These",
-  "More Games Worth Playing",
-  "You Might Also Like",
-  "Other Games in This Lane",
-  "Keep the Tab Open — Try These Next",
-  "Same Energy, Different Game",
-  "Still Got Time? These Are Good",
-  "Games That Hit the Same Way"
-];
-(function(){
-  const el = document.getElementById('similarHeading');
-  if(el) el.textContent = SIMILAR_HEADINGS[Math.floor(Math.random() * SIMILAR_HEADINGS.length)];
-})();
+// Similar games heading — fixed per game page
+document.getElementById('similarHeading').textContent = 'Same Energy, Different Game';
 
 // Most Played Games Strip
 const MP_GAMES = [
