@@ -15,11 +15,7 @@
   });
   window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
 
-  const COLORS = ['#4f8ef7','#a259ff','#00e5ff','#ff4444'  { name:"Smash Karts",         emoji:"🏎️", img:"images/smash-karts-unblocked-classroom-6x.webp",    category:"multiplayer", badge:"",    url:"game/smash-karts-unblocked.html" },
-  { name:"Tunnel Rush",          emoji:"🌀", img:"images/tunnel-rush-unblocked-classroom-6x.webp",   category:"action",      badge:"",    url:"game/tunnel-rush-unblocked.html" },
-  { name:"Happy Wheels",         emoji:"🛞", img:"images/happy-wheels-unblocked-classroom-6x.webp",  category:"action",      badge:"",    url:"game/happy-wheels-unblocked.html" },
-  { name:"Subway Surfers",       emoji:"🚇", img:"images/subway-surfers-unblocked-classroom-6x.webp",category:"action",      badge:"",    url:"game/subway-surfers-unblocked.html" },
-];
+  const COLORS = ['#4f8ef7','#a259ff','#00e5ff','#ff4444'];
 
   // Floating 3D wireframe cubes — large & bright
   const cubes = Array.from({length:18}, () => ({
@@ -202,6 +198,10 @@ const GAMES = [
   { name:"Cookie Clicker",      emoji:"🍪", img:"images/cookie-clicker-unblocked-classroom-6x.webp", category:"idle",        badge:"",    url:"game/cookie-clicker-unblocked.html" },
   { name:"Monkey Mart",         emoji:"🐵", img:"images/monkey-mart-unblocked-classroom-6x.webp", category:"idle",        badge:"HOT", url:"game/monkey-mart-unblocked.html" },
   { name:"Idle Miner",          emoji:"⛏️", img:"images/idle-miner-unblocked-classroom-6x.webp", category:"idle",        badge:"",    url:"game/idle-miner-unblocked.html" },
+  { name:"Smash Karts",    emoji:"🏎️", img:"images/smash-karts-unblocked-classroom-6x.webp",    category:"multiplayer", badge:"",    url:"game/smash-karts-unblocked.html" },
+  { name:"Tunnel Rush",    emoji:"🌀", img:"images/tunnel-rush-unblocked-classroom-6x.webp",   category:"action",      badge:"",    url:"game/tunnel-rush-unblocked.html" },
+  { name:"Happy Wheels",   emoji:"🛞", img:"images/happy-wheels-unblocked-classroom-6x.webp",  category:"action",      badge:"",    url:"game/happy-wheels-unblocked.html" },
+  { name:"Subway Surfers", emoji:"🚇", img:"images/subway-surfers-unblocked-classroom-6x.webp",category:"action",      badge:"",    url:"game/subway-surfers-unblocked.html" },
 ];
 
 /* ── STATE ── */
