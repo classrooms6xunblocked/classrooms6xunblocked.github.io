@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /index.html
+
+Sitemap: https://classrooms6xunblocked.github.io/sitemap.xml

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cookie Clicker Unblocked – Play Cookie Clicker at School | Classroom 6x</title>
+  <meta name="description" content="Cookie Clicker Unblocked on classrooms6xunblocked.github.io. The original idle game since 2013. Click, upgrade, build an empire. Works on any school Chromebook. Play Now."/>
+  <meta name="author" content="Ash Mercer"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://classrooms6xunblocked.github.io/game/cookie-clicker-unblocked.html"/>
+  <link rel="icon" type="image/webp" href="../classrooms-6x-unblocked.webp"/>
+  <meta property="og:image" content="https://classrooms6xunblocked.github.io/images/cookie-clicker-unblocked-classroom-6x.webp"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    @keyframes logoGlow{0%,100%{filter:drop-shadow(0 0 8px rgba(79,142,247,0.5))}50%{filter:drop-shadow(0 0 20px rgba(162,89,255,0.9)) drop-shadow(0 0 35px rgba(79,142,247,0.5))}}
+    .game-frame-wrap{width:100%;max-width:960px;margin:1.5rem auto 0;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+    .game-frame-wrap iframe{width:100%;height:540px;border:none;display:block;}
+    .game-controls-bar{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1.2rem;background:var(--surface);border-top:1px solid var(--border);gap:1rem;flex-wrap:wrap;}
+    .game-title-bar{font-weight:700;font-size:1.1rem;color:var(--text);}
+    .controls-hint{font-size:0.82rem;color:var(--muted);}
+    .btn-bar{display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;}
+    .btn-play{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;padding:0.55rem 1.4rem;border-radius:999px;font-weight:700;font-size:0.95rem;cursor:pointer;transition:opacity var(--tr);}
+    .btn-play:hover{opacity:0.85;}
+    .btn-fullscreen{background:var(--card);color:var(--text);border:1px solid var(--border);padding:0.5rem 1.1rem;border-radius:999px;font-size:0.9rem;cursor:pointer;transition:background var(--tr);}
+    .btn-fullscreen:hover{background:var(--card-hover);}
+    .btn-report{background:transparent;color:var(--muted);border:1px solid var(--border);padding:0.5rem 1rem;border-radius:999px;font-size:0.85rem;cursor:pointer;transition:color var(--tr);}
+    .btn-report:hover{color:#ff4444;border-color:#ff4444;}
+    .game-cat-tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin:0.8rem 0 1.5rem;}
+    .cat-tag{background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.3);color:var(--accent);font-size:0.78rem;font-weight:600;padding:0.3rem 0.85rem;border-radius:999px;text-decoration:none;transition:background .2s;}
+    .cat-tag:hover{background:rgba(79,142,247,0.2);}
+    .similar-games-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin-top:0.75rem;}
+    .sim-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;transition:border-color .2s,transform .2s;}
+    .sim-card:hover{border-color:var(--accent);transform:translateY(-3px);}
+    .sim-thumb{width:100%;height:110px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .sim-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+    .sim-info{padding:0.75rem 0.9rem 0.4rem;flex:1;}
+    .sim-name{font-weight:700;font-size:0.95rem;color:var(--text);margin-bottom:0.3rem;}
+    .sim-desc{font-size:0.8rem;color:var(--muted);line-height:1.5;}
+    .sim-play{display:block;margin:0.6rem 0.9rem 0.9rem;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:0.82rem;font-weight:700;padding:0.45rem 0.9rem;border-radius:999px;text-align:center;width:fit-content;}
+    .mp-section{width:100%;max-width:960px;margin:12px auto 0;padding:0 1rem;}
+    .mp-title{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+    .mp-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+    .mp-scroll{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin;scrollbar-color:var(--accent) transparent;}
+    .mp-scroll::-webkit-scrollbar{height:3px;}
+    .mp-scroll::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px;}
+    .mp-item{flex:0 0 auto;width:90px;text-decoration:none;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all .2s;}
+    .mp-item:hover{border-color:var(--accent);transform:translateY(-2px);}
+    .mp-item img{width:100%;height:62px;object-fit:cover;display:block;background:var(--surface);}
+    .mp-item-name{font-size:9px;font-weight:700;color:var(--text);padding:4px 5px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:1000;align-items:center;justify-content:center;}
+    .modal-overlay.open{display:flex;}
+    .modal-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;width:90%;max-width:420px;}
+    .modal-box h3{margin-bottom:1rem;font-size:1.1rem;}
+    .modal-box select,.modal-box textarea{width:100%;background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:0.6rem 0.8rem;margin-bottom:0.8rem;font-family:var(--font-body);font-size:0.9rem;box-sizing:border-box;}
+    .modal-box textarea{min-height:80px;resize:vertical;}
+    .modal-actions{display:flex;gap:0.75rem;justify-content:flex-end;margin-top:0.5rem;}
+    .modal-cancel{background:transparent;border:1px solid var(--border);color:var(--muted);padding:0.5rem 1.1rem;border-radius:999px;cursor:pointer;font-size:0.9rem;}
+    .modal-submit{background:#ff4444;border:none;color:#fff;padding:0.5rem 1.3rem;border-radius:999px;font-weight:700;cursor:pointer;font-size:0.9rem;}
+    @media(max-width:600px){.game-frame-wrap iframe{height:320px;}.game-controls-bar{flex-direction:column;align-items:flex-start;}.mp-item{width:76px;}.mp-item img{height:52px;}}
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"VideoGame","name":"Cookie Clicker","description":"Cookie Clicker is the original idle incremental game by Orteil. Click a cookie, buy upgrades and buildings, automate production. Released August 8, 2013.","genre":["Idle","Clicker"],"datePublished":"2013-08-08","author":{"@type":"Person","name":"Ash Mercer"},"publisher":{"@type":"Organization","name":"Classroom 6x Unblocked"},"url":"https://classrooms6xunblocked.github.io/game/cookie-clicker-unblocked.html","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://classrooms6xunblocked.github.io/"},{"@type":"ListItem","position":2,"name":"Idle Games","item":"https://classrooms6xunblocked.github.io/category/idle.html"},{"@type":"ListItem","position":3,"name":"Cookie Clicker Unblocked","item":"https://classrooms6xunblocked.github.io/game/cookie-clicker-unblocked.html"}]}}
+  </script>
+</head>
+<body>
+<canvas id="bgCanvas" aria-hidden="true"></canvas>
+<div class="page-wrap">
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo" style="gap:10px;">
+      <img src="../classrooms-6x-unblocked.webp" alt="Classroom 6x" class="logo-img" style="height:90px;"/>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../category/idle.html" class="active">Idle</a></li>
+      <li><a href="../category/action.html">Action</a></li>
+      <li><a href="../category/puzzle.html">Puzzle</a></li>
+      <li><a href="../pages/about.html">About</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </nav>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../category/idle.html">Idle</a><span class="sep">›</span>
+    <span class="current">Cookie Clicker Unblocked</span>
+  </nav>
+
+  <div class="game-frame-wrap" id="gameWrap">
+    <iframe id="gameFrame" src="https://games-online.io/game/cake-maker/" title="Cookie Clicker Unblocked – Play at School" allowfullscreen loading="lazy"></iframe>
+    <div class="game-controls-bar">
+      <div>
+        <div class="game-title-bar">🍪 Cookie Clicker Unblocked</div>
+        <div class="controls-hint">Controls: Click the cookie &nbsp;|&nbsp; Click upgrades and buildings on the right</div>
+      </div>
+      <div class="btn-bar">
+        <button class="btn-play" onclick="document.getElementById('gameFrame').src='https://games-online.io/game/cake-maker/'">▶ Play Now</button>
+        <button class="btn-fullscreen" onclick="enterFullscreen()">⛶ Fullscreen</button>
+        <button class="btn-report" onclick="openReport()">⚑ Report</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mp-section">
+    <div class="mp-title">🔥 Most Played Games</div>
+    <div class="mp-scroll" id="mpScroll"></div>
+  </div>
+
+  <section class="article-wrap">
+    <div class="article-inner">
+      <div class="article-meta">
+        <div class="author-avatar">AM</div>
+        <div class="author-info">
+          <div class="author-name">Ash Mercer</div>
+          <div class="author-date">Updated June 2026 · 5 min read</div>
+        </div>
+      </div>
+      <div class="game-cat-tags">
+        <a href="../category/idle.html" class="cat-tag">💤 Idle</a>
+        <a href="../category/idle.html" class="cat-tag">🖱️ Clicker</a>
+      </div>
+
+      <h2>Cookie Clicker Unblocked: The Game That Started Idle Gaming in 2013</h2>
+      <p>
+        Orteil coded <strong>Cookie Clicker Unblocked</strong> in one night and posted it on 4chan
+        in August 2013. It hit 50,000 players within hours and 1.5 million daily visits
+        by the end of that month. The concept is absurd: click a giant cookie.
+        Buy things that click it for you. Repeat until the numbers get ridiculous.
+        Opened it to test the page and looked up 45 minutes later.
+        Still not sure exactly what happened in between.
+      </p>
+
+      <h3>Click a Cookie. Then Don't.</h3>
+      <p>
+        The game starts with you clicking a large cookie on the left side of the screen.
+        Each click earns one cookie. With enough cookies you can buy a Cursor
+        that clicks automatically. Then a Grandma who bakes cookies.
+        Then a Farm, a Mine, a Factory, a Bank, a Temple, a Wizard Tower,
+        a Shipment, an Alchemy Lab, a Portal, a Time Machine, an Antimatter Condenser,
+        a Prism, a Chancemaker, a Fractal Engine, a Javascript Console, an Idleverse.
+        The production scales from cookies per second into the trillions.
+        Eventually you're producing more cookies per second than have ever existed.
+        There's lore behind all of it and the Grandmas get unsettling.
+      </p>
+
+      <h3>The Grandmapocalypse Is a Real Thing</h3>
+      <p>
+        If you upgrade your Grandmas enough times, a Grandmapocalypse triggers.
+        The game's visual style changes, Grandmas start muttering ominous things,
+        and wrinklers appear on the main cookie, slowly consuming it but generating
+        extra cookies when popped. Most players don't expect this the first time.
+        It's one of the more creative things hidden in what looks like
+        a simple clicker game.
+      </p>
+
+      <h3>Controls</h3>
+      <ul>
+        <li><strong>Left Click (cookie):</strong> Produce cookies manually</li>
+        <li><strong>Left Click (upgrades):</strong> Purchase upgrades in the top panel</li>
+        <li><strong>Left Click (buildings):</strong> Buy production buildings on the right</li>
+        <li><strong>Golden Cookie:</strong> Click immediately when it appears. Big bonus</li>
+      </ul>
+
+      <h3>Why This is the Perfect Background Tab Game</h3>
+      <p>
+        Cookie Clicker keeps running when you're not clicking. Open it in a tab,
+        set up some automated production, go to class.
+        classrooms6xunblocked.github.io has it ready when you open a tab.
+        Come back during break and you have thousands more cookies than you left with.
+        Play Cookie Clicker at school and the automation means you don't need to
+        stare at the screen. <a href="https://classrooms6xunblocked.github.io/" style="color:var(--accent);text-decoration:none;">6x classroom</a>
+        keeps it browser-ready, nothing to install.
+        <strong>Cookie Clicker Unblocked Chromebook</strong> saves progress locally.
+        Come back tomorrow. Your empire is still there.
+      </p>
+
+      <h3>What Actually Moves the Numbers Fast</h3>
+      <ul>
+        <li><strong>Click Golden Cookies instantly:</strong> These appear randomly and disappear quickly. A Golden Cookie can multiply your production for a few seconds or give a massive lump of cookies. Never miss one.</li>
+        <li><strong>Buy upgrades before more buildings:</strong> Upgrades that multiply existing building output are almost always better than buying another building. Check the upgrade panel before buying more Grandmas.</li>
+        <li><strong>Milk scales with achievements:</strong> Achievements increase Milk percentage, which boosts cookie production when combined with Kitten upgrades. Chasing achievements is the most efficient long-term strategy.</li>
+        <li><strong>Prestige when production slows:</strong> The Prestige system resets your run but gives permanent multipliers. Your next run grows exponentially faster. Don't be afraid to reset. It's designed to reward it.</li>
+        <li><strong>Wrinklers are worth keeping:</strong> During Grandmapocalypse, wrinklers look like they're hurting production. They're not. Each wrinkler generates 1.1x the cookies it consumes. Pop them when you need a burst.</li>
+      </ul>
+
+      <h3>Made in One Night, Updated for 13 Years</h3>
+      <p>
+        Cookie Clicker was created by Julien "Orteil" Thiennot at DashNet and launched
+        August 8, 2013. Orteil has updated it continuously since. Gardens, the Pantheon,
+        the Grimoire, the Stock Market, seasonal events, all added years after launch.
+        The Steam version arrived September 2021 with a full soundtrack.
+        The browser version on classroom 6x unblocked runs in HTML5,
+        updated and maintained, no Flash required.
+      </p>
+
+      <h3>Things People Actually Wonder About</h3>
+      <div class="faq-item">
+        <button class="faq-q">Does Cookie Clicker keep producing while the tab is closed? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes. The game calculates offline production when you return. You won't earn as fast as when the tab is open, but your buildings keep running. Come back after class and you'll have more cookies waiting.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does Cookie Clicker Unblocked work on a school Chromebook? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Cookie Clicker loads directly in the browser using HTML5. Tested on school hardware on shared WiFi. Chrome handles it without any issues. Cookie Clicker Unblocked Chromebook saves progress locally. Your run stays between sessions.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What's the point of resetting in Cookie Clicker? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Resetting earns Prestige levels and Heavenly Chips, which give permanent production multipliers. Your second run grows much faster than the first. The game is designed around multiple resets. It's a feature, not losing.</div>
+      </div>
+
+      <h3>Also Worth a Tab</h3>
+      <div class="similar-games-grid">
+        <a href="monkey-mart-unblocked.html" class="sim-card">
+          <div class="sim-thumb">
+            <img src="../images/monkey-mart-unblocked-classroom-6x.webp" alt="Monkey Mart" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a1a3e,#0d0d2b)';this.style.display='none'"/>
+          </div>
+          <div class="sim-info">
+            <div class="sim-name">Monkey Mart</div>
+            <div class="sim-desc">More active than Cookie Clicker. You move around a supermarket instead of clicking. Same satisfying loop.</div>
+          </div>
+          <span class="sim-play">Play ▶</span>
+        </a>
+        <a href="retro-bowl-unblocked.html" class="sim-card">
+          <div class="sim-thumb">
+            <img src="../images/retro-bowl-unblocked-classroom-6x.webp" alt="Retro Bowl" onerror="this.parentElement.style.background='linear-gradient(135deg,#0d1f3e,#0a0a2b)';this.style.display='none'"/>
+          </div>
+          <div class="sim-info">
+            <div class="sim-name">Retro Bowl</div>
+            <div class="sim-desc">Completely different but same session-eating quality. Manage a football team and control the offense.</div>
+          </div>
+          <span class="sim-play">Play ▶</span>
+        </a>
+      </div>
+
+      <p style="margin-top:2rem;font-size:0.82rem;color:var(--muted);">
+        Written by <strong style="color:var(--text);">Ash Mercer</strong> · Gaming platform reviewer and web publisher · Updated June 2026
+      </p>
+    </div>
+  </section>
+
+  <div class="modal-overlay" id="reportModal">
+    <div class="modal-box">
+      <h3>⚑ Report an Issue</h3>
+      <form id="reportForm" action="https://formspree.io/f/meewvlor" method="POST">
+        <input type="hidden" name="game" value="Cookie Clicker"/>
+        <input type="hidden" name="_replyto" value="meetjameswilliam@gmail.com"/>
+        <select name="issue" required>
+          <option value="">Select issue type</option>
+          <option value="not-loading">Game not loading</option>
+          <option value="broken">Game broken / glitching</option>
+          <option value="wrong-game">Wrong game loaded</option>
+          <option value="other">Other</option>
+        </select>
+        <textarea name="details" placeholder="Extra details? (optional)"></textarea>
+        <div class="modal-actions">
+          <button type="button" class="modal-cancel" onclick="closeReport()">Cancel</button>
+          <button type="submit" class="modal-submit">Send Report</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="../classrooms-6x-unblocked.webp" alt="Classroom 6x Unblocked" style="height:90px;width:auto;margin-bottom:0.8rem;filter:drop-shadow(0 0 12px rgba(79,142,247,0.7)) drop-shadow(0 0 24px rgba(162,89,255,0.5))"/>
+        <p>Free unblocked games for students. Play instantly on any Chromebook.</p>
+      </div>
+      <div class="footer-col"><h4>Categories</h4><ul>
+        <li><a href="../category/idle.html">💤 Idle</a></li>
+        <li><a href="../category/action.html">⚡ Action</a></li>
+        <li><a href="../category/puzzle.html">🧩 Puzzle</a></li>
+        <li><a href="../category/multiplayer.html">👥 Multiplayer</a></li>
+        <li><a href="../category/racing.html">🏎️ Racing</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Pages</h4><ul>
+        <li><a href="../pages/about.html">About Us</a></li>
+        <li><a href="../pages/privacy.html">Privacy Policy</a></li>
+        <li><a href="../pages/dmca.html">DMCA</a></li>
+        <li><a href="../pages/contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>More Idle Games</h4><ul>
+        <li><a href="cookie-clicker-unblocked.html">Cookie Clicker</a></li>
+        <li><a href="monkey-mart-unblocked.html">Monkey Mart</a></li>
+        <li><a href="#">Idle Miner</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Classroom 6x · Written by <strong>Ash Mercer</strong></span>
+      <span><a href="../pages/privacy.html">Privacy</a> · <a href="../pages/dmca.html">DMCA</a></span>
+    </div>
+  </footer>
+</div>
+<script src="../js/main.js"></script>
+<script src="../js/cursor.js"></script>
+<script>
+  function enterFullscreen(){const f=document.getElementById('gameFrame');if(f.requestFullscreen)f.requestFullscreen();else if(f.webkitRequestFullscreen)f.webkitRequestFullscreen();else if(f.mozRequestFullScreen)f.mozRequestFullScreen();else{const b=f.parentElement;b.style.cssText='position:fixed;inset:0;z-index:9999;border-radius:0;border:none;';f.style.height='100vh';f.style.width='100vw';const c=document.createElement('button');c.textContent='✕ Exit Fullscreen';c.style.cssText='position:fixed;top:10px;right:10px;z-index:10000;background:var(--accent);color:#fff;border:none;padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:700;font-size:13px;';c.onclick=()=>{b.style.cssText='';f.style.height='';f.style.width='';c.remove();};document.body.appendChild(c);}}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){const c=document.querySelector('[onclick*="remove"]');if(c)c.click();}});
+  function openReport(){document.getElementById('reportModal').classList.add('open');}
+  function closeReport(){document.getElementById('reportModal').classList.remove('open');}
+  document.getElementById('reportModal').addEventListener('click',function(e){if(e.target===this)closeReport();});
+  document.getElementById('reportForm').addEventListener('submit',function(e){e.preventDefault();fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}}).then(()=>{this.innerHTML='<p style="color:var(--accent);text-align:center;padding:1rem;">Thanks! Report sent.</p>';setTimeout(closeReport,2000);}).catch(()=>alert('Could not send. Try again later.'));});
+  document.body.dataset.faqInit='true';
+  document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',function(){const item=this.closest('.faq-item');const icon=this.querySelector('.faq-icon');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-icon').textContent='+';});if(!isOpen){item.classList.add('open');icon.textContent='−';}});});
+  if(typeof initNav==='function')initNav();
+  const MP_GAMES=[
+    {name:"Monkey Mart",href:"monkey-mart-unblocked.html",img:"../images/monkey-mart-unblocked-classroom-6x.webp"},
+    {name:"Retro Bowl",href:"retro-bowl-unblocked.html",img:"../images/retro-bowl-unblocked-classroom-6x.webp"},
+    {name:"Slope",href:"slope-unblocked.html",img:"../images/slope-unblocked-classroom-6x.webp"},
+    {name:"1v1.lol",href:"1v1lol-unblocked.html",img:"../images/1v1lol-unblocked-classroom-6x.webp"},
+    {name:"Drive Mad",href:"drive-mad-unblocked.html",img:"../images/drive-mad-unblocked-classroom-6x.webp"},
+    {name:"Run 3",href:"run-3-unblocked.html",img:"../images/run-3-unblocked-classroom-6x.webp"},
+    {name:"Smash Karts",href:"smash-karts-unblocked.html",img:"../images/smash-karts-unblocked-classroom-6x.webp"},
+    {name:"Moto X3M",href:"moto-x3m-unblocked.html",img:"../images/moto-x3m-unblocked-classroom-6x.webp"},
+    {name:"Drift Hunters",href:"drift-hunters-unblocked.html",img:"../images/drift-hunters-unblocked-classroom-6x.webp"},
+    {name:"Tunnel Rush",href:"tunnel-rush-unblocked.html",img:"../images/tunnel-rush-unblocked-classroom-6x.webp"}
+  ];
+  (function(){const cur=window.location.pathname.split('/').pop();const filtered=MP_GAMES.filter(g=>g.href!==cur).sort(()=>Math.random()-0.5).slice(0,10);const el=document.getElementById('mpScroll');if(el)el.innerHTML=filtered.map(g=>`<a href="${g.href}" class="mp-item"><img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.style.background='#1a1a2e'"><div class="mp-item-name">${g.name}</div></a>`).join('');})();
+</script>
+</body>
+</html>
