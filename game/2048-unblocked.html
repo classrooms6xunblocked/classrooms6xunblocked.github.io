@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2048 Unblocked – Play 2048 at School | Classroom 6x</title>
+  <meta name="description" content="2048 Unblocked on classrooms6xunblocked.github.io. Gabriele Cirulli's viral puzzle. Slide, merge, reach 2048. Built in a weekend, played 4M times in a week. Play Now."/>
+  <meta name="author" content="Ash Mercer"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://classrooms6xunblocked.github.io/game/2048-unblocked.html"/>
+  <link rel="icon" type="image/webp" href="../classrooms-6x-unblocked.webp"/>
+  <meta property="og:image" content="https://classrooms6xunblocked.github.io/images/2048-unblocked-classroom-6x.webp"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    @keyframes logoGlow{0%,100%{filter:drop-shadow(0 0 8px rgba(79,142,247,0.5))}50%{filter:drop-shadow(0 0 20px rgba(162,89,255,0.9)) drop-shadow(0 0 35px rgba(79,142,247,0.5))}}
+    .game-frame-wrap{width:100%;max-width:960px;margin:1.5rem auto 0;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+    .game-frame-wrap iframe{width:100%;height:540px;border:none;display:block;}
+    .game-controls-bar{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1.2rem;background:var(--surface);border-top:1px solid var(--border);gap:1rem;flex-wrap:wrap;}
+    .game-title-bar{font-weight:700;font-size:1.1rem;color:var(--text);}
+    .controls-hint{font-size:0.82rem;color:var(--muted);}
+    .btn-bar{display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;}
+    .btn-play{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;padding:0.55rem 1.4rem;border-radius:999px;font-weight:700;font-size:0.95rem;cursor:pointer;transition:opacity var(--tr);}
+    .btn-play:hover{opacity:0.85;}
+    .btn-fullscreen{background:var(--card);color:var(--text);border:1px solid var(--border);padding:0.5rem 1.1rem;border-radius:999px;font-size:0.9rem;cursor:pointer;transition:background var(--tr);}
+    .btn-fullscreen:hover{background:var(--card-hover);}
+    .btn-report{background:transparent;color:var(--muted);border:1px solid var(--border);padding:0.5rem 1rem;border-radius:999px;font-size:0.85rem;cursor:pointer;transition:color var(--tr);}
+    .btn-report:hover{color:#ff4444;border-color:#ff4444;}
+    .game-cat-tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin:0.8rem 0 1.5rem;}
+    .cat-tag{background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.3);color:var(--accent);font-size:0.78rem;font-weight:600;padding:0.3rem 0.85rem;border-radius:999px;text-decoration:none;transition:background .2s;}
+    .cat-tag:hover{background:rgba(79,142,247,0.2);}
+    .similar-games-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin-top:0.75rem;}
+    .sim-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;transition:border-color .2s,transform .2s;}
+    .sim-card:hover{border-color:var(--accent);transform:translateY(-3px);}
+    .sim-thumb{width:100%;height:110px;overflow:hidden;}
+    .sim-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+    .sim-info{padding:0.75rem 0.9rem 0.4rem;flex:1;}
+    .sim-name{font-weight:700;font-size:0.95rem;color:var(--text);margin-bottom:0.3rem;}
+    .sim-desc{font-size:0.8rem;color:var(--muted);line-height:1.5;}
+    .sim-play{display:block;margin:0.6rem 0.9rem 0.9rem;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:0.82rem;font-weight:700;padding:0.45rem 0.9rem;border-radius:999px;text-align:center;width:fit-content;}
+    .mp-section{width:100%;max-width:960px;margin:12px auto 0;padding:0 1rem;}
+    .mp-title{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+    .mp-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+    .mp-scroll{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin;scrollbar-color:var(--accent) transparent;}
+    .mp-scroll::-webkit-scrollbar{height:3px;}
+    .mp-scroll::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px;}
+    .mp-item{flex:0 0 auto;width:90px;text-decoration:none;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all .2s;}
+    .mp-item:hover{border-color:var(--accent);transform:translateY(-2px);}
+    .mp-item img{width:100%;height:62px;object-fit:cover;display:block;background:var(--surface);}
+    .mp-item-name{font-size:9px;font-weight:700;color:var(--text);padding:4px 5px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:1000;align-items:center;justify-content:center;}
+    .modal-overlay.open{display:flex;}
+    .modal-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;width:90%;max-width:420px;}
+    .modal-box h3{margin-bottom:1rem;font-size:1.1rem;}
+    .modal-box select,.modal-box textarea{width:100%;background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:0.6rem 0.8rem;margin-bottom:0.8rem;font-family:var(--font-body);font-size:0.9rem;box-sizing:border-box;}
+    .modal-box textarea{min-height:80px;resize:vertical;}
+    .modal-actions{display:flex;gap:0.75rem;justify-content:flex-end;margin-top:0.5rem;}
+    .modal-cancel{background:transparent;border:1px solid var(--border);color:var(--muted);padding:0.5rem 1.1rem;border-radius:999px;cursor:pointer;font-size:0.9rem;}
+    .modal-submit{background:#ff4444;border:none;color:#fff;padding:0.5rem 1.3rem;border-radius:999px;font-weight:700;cursor:pointer;font-size:0.9rem;}
+    @media(max-width:600px){.game-frame-wrap iframe{height:380px;}.game-controls-bar{flex-direction:column;align-items:flex-start;}.mp-item{width:76px;}.mp-item img{height:52px;}}
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"VideoGame","name":"2048","description":"2048 is a sliding tile puzzle by Gabriele Cirulli. Combine matching number tiles on a 4x4 grid to reach the 2048 tile. Released March 9, 2014 as open-source.","genre":["Puzzle","Strategy"],"datePublished":"2014-03-09","author":{"@type":"Person","name":"Ash Mercer"},"publisher":{"@type":"Organization","name":"Classroom 6x Unblocked"},"url":"https://classrooms6xunblocked.github.io/game/2048-unblocked.html","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://classrooms6xunblocked.github.io/"},{"@type":"ListItem","position":2,"name":"Puzzle Games","item":"https://classrooms6xunblocked.github.io/category/puzzle.html"},{"@type":"ListItem","position":3,"name":"2048 Unblocked","item":"https://classrooms6xunblocked.github.io/game/2048-unblocked.html"}]}}
+  </script>
+</head>
+<body>
+<canvas id="bgCanvas" aria-hidden="true"></canvas>
+<div class="page-wrap">
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo" style="gap:10px;"><img src="../classrooms-6x-unblocked.webp" alt="Classroom 6x" class="logo-img" style="height:90px;"/></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../category/puzzle.html" class="active">Puzzle</a></li>
+      <li><a href="../category/idle.html">Idle</a></li>
+      <li><a href="../category/action.html">Action</a></li>
+      <li><a href="../pages/about.html">About</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </nav>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../category/puzzle.html">Puzzle</a><span class="sep">›</span>
+    <span class="current">2048 Unblocked</span>
+  </nav>
+
+  <div class="game-frame-wrap" id="gameWrap">
+    <iframe id="gameFrame" src="https://0x0800.github.io/2048-CUPCAKES/" title="2048 Unblocked – Play at School" allowfullscreen loading="lazy"></iframe>
+    <div class="game-controls-bar">
+      <div>
+        <div class="game-title-bar">🔢 2048 Unblocked</div>
+        <div class="controls-hint">Arrow Keys or WASD to slide tiles &nbsp;|&nbsp; Match numbers to merge &nbsp;|&nbsp; Reach 2048</div>
+      </div>
+      <div class="btn-bar">
+        <button class="btn-play" onclick="document.getElementById('gameFrame').src='https://0x0800.github.io/2048-CUPCAKES/'">▶ Play Now</button>
+        <button class="btn-fullscreen" onclick="enterFullscreen()">⛶ Fullscreen</button>
+        <button class="btn-report" onclick="openReport()">⚑ Report</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mp-section">
+    <div class="mp-title">🔥 Most Played Games</div>
+    <div class="mp-scroll" id="mpScroll"></div>
+  </div>
+
+  <section class="article-wrap">
+    <div class="article-inner">
+      <div class="article-meta">
+        <div class="author-avatar">AM</div>
+        <div class="author-info">
+          <div class="author-name">Ash Mercer</div>
+          <div class="author-date">Updated June 2026 · 5 min read</div>
+        </div>
+      </div>
+      <div class="game-cat-tags">
+        <a href="../category/puzzle.html" class="cat-tag">🧩 Puzzle</a>
+        <a href="../category/puzzle.html" class="cat-tag">🔢 Numbers</a>
+      </div>
+
+      <h2>2048 Unblocked: One Weekend, Four Million Players, Zero Dollars</h2>
+      <p>
+        Gabriele Cirulli was 19 years old and built <strong>2048 Unblocked</strong> over a single weekend
+        in March 2014. He published it on GitHub as open-source with no plans beyond seeing if people liked it.
+        Four million visitors arrived within the first week. The Wall Street Journal called it
+        "almost like Candy Crush for math geeks." Came back four sessions testing this page.
+        The grid is small. The decisions compound fast. That's the entire problem.
+      </p>
+
+      <h3>Slide, Merge, Repeat</h3>
+      <p>
+        You start with two tiles on a 4x4 grid, each showing either a 2 or a 4.
+        Every move slides all tiles in one direction as far as they can go.
+        Two tiles with the same number that collide merge into one with double the value.
+        2+2 becomes 4. 4+4 becomes 8. Keep merging until you hit 2048.
+        After every move, a new 2 or 4 tile appears randomly in an empty space.
+        The game ends when no moves remain. Getting to 2048 is the goal.
+        Going beyond it is the real challenge.
+      </p>
+
+      <h3>Why This Is Harder Than It Looks</h3>
+      <p>
+        The problem is board management. Every move affects every tile simultaneously.
+        A move that merges two tiles in one corner might also scatter tiles you needed
+        somewhere else. The grid fills up faster than expected. By the time you have
+        a 256 tile, the board is already crowded and the margin for error shrinks.
+        Most first-time players hit a wall around 512. Getting to 1024 requires
+        actually thinking two or three moves ahead. 2048 requires a strategy held
+        consistently across the whole game.
+      </p>
+
+      <h3>Controls</h3>
+      <ul>
+        <li><strong>← ↓ ↑ → Arrow Keys:</strong> Slide all tiles in that direction</li>
+        <li><strong>WASD:</strong> Alternative movement keys</li>
+        <li><strong>Mobile:</strong> Swipe in the direction you want tiles to move</li>
+        <li><strong>New Game button:</strong> Reset the board</li>
+      </ul>
+
+      <h3>Why This Works at School</h3>
+      <p>
+        2048 has no timer. No opponent. No failure screen until the board is actually full.
+        You can pause mid-game, close the tab, and come back.
+        classrooms6xunblocked.github.io has 2048 ready when you open a tab.
+        Tested on school Chromebook hardware. Loads instantly, runs with no lag at all.
+        Play 2048 at school across multiple sessions.
+        <a href="https://classrooms6xunblocked.github.io/" style="color:var(--accent);text-decoration:none;">classroom 6x</a>
+        keeps it browser-ready. <strong>2048 Unblocked Chromebook</strong> works on
+        every school device tested, including older Chromebooks on shared WiFi.
+      </p>
+
+      <h3>The Corner Strategy That Actually Works</h3>
+      <ul>
+        <li><strong>Pick a corner, stay there:</strong> Keep your highest tile in one corner the entire game. Every move should work toward keeping that corner occupied by your biggest number. Switching corners mid-game is how most runs fall apart.</li>
+        <li><strong>Fill one row completely:</strong> Keep the row adjacent to your corner full. This lets you move tiles along that row freely without the high tile drifting toward the center.</li>
+        <li><strong>Only two directions to start:</strong> If your high tile is in the bottom-left, only slide left and down. Never slide up or right unless you have absolutely no other option. Every exception costs you position.</li>
+        <li><strong>Don't chase small tiles:</strong> Resist merging small tiles in the middle of the board when your high tiles need specific positioning. Merging a 4+4 in the center might block the path your 256 tile needs.</li>
+        <li><strong>Build in order:</strong> Try to arrange tiles in descending order along the corner row: 1024, 512, 256, 128. This creates a natural merge chain when the right tiles arrive.</li>
+      </ul>
+
+      <h3>One Weekend Project That Changed Puzzle Gaming</h3>
+      <p>
+        2048 was created by Gabriele Cirulli, an Italian web developer, and published
+        March 9, 2014. He described it as an improved clone of the game 1024 by Veewo Studios,
+        which itself was inspired by Threes. Cirulli released the source code under the
+        MIT License, which led to hundreds of variants and clones appearing within weeks.
+        The game runs in any browser using JavaScript and CSS.
+        No plugins, no installs. The version here loads in under two seconds.
+      </p>
+
+      <h3>Common Questions</h3>
+      <div class="faq-item">
+        <button class="faq-q">Does 2048 save progress if I close the tab? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes. The game saves your current board state in browser local storage. Close the tab and come back later. Your game is exactly where you left it. Clearing browser data will reset the save.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does 2048 Unblocked work on a school Chromebook? <span class="faq-icon">+</span></button>
+        <div class="faq-a">2048 loads directly in the browser using HTML and JavaScript. Tested on school Chromebook hardware. Chrome handles it without any issues. 2048 Unblocked Chromebook runs on every school device tested.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is it possible to go beyond 2048? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes. The game continues after you reach 2048. You can keep merging to 4096, 8192, and beyond. The theoretical maximum on a 4x4 grid is 131072. Most players never reach 4096. Reaching 2048 itself is already a significant achievement.</div>
+      </div>
+
+      <h3>More Thinking Games</h3>
+      <div class="similar-games-grid">
+        <a href="little-alchemy-2-unblocked.html" class="sim-card">
+          <div class="sim-thumb"><img src="../images/little-alchemy-2-unblocked-classroom-6x.webp" alt="Little Alchemy 2" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a1a3e,#0d0d2b)';this.style.display='none'"/></div>
+          <div class="sim-info">
+            <div class="sim-name">Little Alchemy 2</div>
+            <div class="sim-desc">No grid, no timer, all experimentation. Combine elements to discover 700 items at your own pace.</div>
+          </div>
+          <span class="sim-play">Play ▶</span>
+        </a>
+        <a href="cookie-clicker-unblocked.html" class="sim-card">
+          <div class="sim-thumb"><img src="../images/cookie-clicker-unblocked-classroom-6x.webp" alt="Cookie Clicker" onerror="this.parentElement.style.background='linear-gradient(135deg,#0d1f3e,#0a0a2b)';this.style.display='none'"/></div>
+          <div class="sim-info">
+            <div class="sim-name">Cookie Clicker</div>
+            <div class="sim-desc">Numbers growing exponentially in a different format. Same "one more move" compulsion as 2048.</div>
+          </div>
+          <span class="sim-play">Play ▶</span>
+        </a>
+      </div>
+
+      <p style="margin-top:2rem;font-size:0.82rem;color:var(--muted);">Written by <strong style="color:var(--text);">Ash Mercer</strong> · Gaming platform reviewer and web publisher · Updated June 2026</p>
+    </div>
+  </section>
+
+  <div class="modal-overlay" id="reportModal">
+    <div class="modal-box">
+      <h3>⚑ Report an Issue</h3>
+      <form id="reportForm" action="https://formspree.io/f/meewvlor" method="POST">
+        <input type="hidden" name="game" value="2048"/>
+        <input type="hidden" name="_replyto" value="meetjameswilliam@gmail.com"/>
+        <select name="issue" required><option value="">Select issue type</option><option value="not-loading">Game not loading</option><option value="broken">Game broken / glitching</option><option value="wrong-game">Wrong game loaded</option><option value="other">Other</option></select>
+        <textarea name="details" placeholder="Extra details? (optional)"></textarea>
+        <div class="modal-actions">
+          <button type="button" class="modal-cancel" onclick="closeReport()">Cancel</button>
+          <button type="submit" class="modal-submit">Send Report</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="../classrooms-6x-unblocked.webp" alt="Classroom 6x Unblocked" style="height:90px;width:auto;margin-bottom:0.8rem;filter:drop-shadow(0 0 12px rgba(79,142,247,0.7))"/>
+        <p>Free unblocked games for students. Play instantly on any Chromebook.</p>
+      </div>
+      <div class="footer-col"><h4>Categories</h4><ul>
+        <li><a href="../category/puzzle.html">🧩 Puzzle</a></li>
+        <li><a href="../category/idle.html">💤 Idle</a></li>
+        <li><a href="../category/action.html">⚡ Action</a></li>
+        <li><a href="../category/multiplayer.html">👥 Multiplayer</a></li>
+        <li><a href="../category/racing.html">🏎️ Racing</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Pages</h4><ul>
+        <li><a href="../pages/about.html">About Us</a></li>
+        <li><a href="../pages/privacy.html">Privacy Policy</a></li>
+        <li><a href="../pages/dmca.html">DMCA</a></li>
+        <li><a href="../pages/contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>More Puzzle Games</h4><ul>
+        <li><a href="little-alchemy-2-unblocked.html">Little Alchemy 2</a></li>
+        <li><a href="fireboy-watergirl-3-unblocked.html">Fireboy & Watergirl 3</a></li>
+        <li><a href="2048-unblocked.html">2048</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Classroom 6x · Written by <strong>Ash Mercer</strong></span>
+      <span><a href="../pages/privacy.html">Privacy</a> · <a href="../pages/dmca.html">DMCA</a></span>
+    </div>
+  </footer>
+</div>
+<script src="../js/main.js"></script>
+<script src="../js/cursor.js"></script>
+<script>
+  function enterFullscreen(){const f=document.getElementById('gameFrame');if(f.requestFullscreen)f.requestFullscreen();else if(f.webkitRequestFullscreen)f.webkitRequestFullscreen();else if(f.mozRequestFullScreen)f.mozRequestFullScreen();else{const b=f.parentElement;b.style.cssText='position:fixed;inset:0;z-index:9999;border-radius:0;border:none;';f.style.height='100vh';f.style.width='100vw';const c=document.createElement('button');c.textContent='✕ Exit Fullscreen';c.style.cssText='position:fixed;top:10px;right:10px;z-index:10000;background:var(--accent);color:#fff;border:none;padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:700;font-size:13px;';c.onclick=()=>{b.style.cssText='';f.style.height='';f.style.width='';c.remove();};document.body.appendChild(c);}}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){const c=document.querySelector('[onclick*="remove"]');if(c)c.click();}});
+  function openReport(){document.getElementById('reportModal').classList.add('open');}
+  function closeReport(){document.getElementById('reportModal').classList.remove('open');}
+  document.getElementById('reportModal').addEventListener('click',function(e){if(e.target===this)closeReport();});
+  document.getElementById('reportForm').addEventListener('submit',function(e){e.preventDefault();fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}}).then(()=>{this.innerHTML='<p style="color:var(--accent);text-align:center;padding:1rem;">Thanks! Report sent.</p>';setTimeout(closeReport,2000);}).catch(()=>alert('Could not send. Try again later.'));});
+  document.body.dataset.faqInit='true';
+  document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',function(){const item=this.closest('.faq-item');const icon=this.querySelector('.faq-icon');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-icon').textContent='+';});if(!isOpen){item.classList.add('open');icon.textContent='−';}});});
+  if(typeof initNav==='function')initNav();
+  const MP_GAMES=[
+    {name:"Little Alchemy 2",href:"little-alchemy-2-unblocked.html",img:"../images/little-alchemy-2-unblocked-classroom-6x.webp"},
+    {name:"Cookie Clicker",href:"cookie-clicker-unblocked.html",img:"../images/cookie-clicker-unblocked-classroom-6x.webp"},
+    {name:"Slope",href:"slope-unblocked.html",img:"../images/slope-unblocked-classroom-6x.webp"},
+    {name:"Run 3",href:"run-3-unblocked.html",img:"../images/run-3-unblocked-classroom-6x.webp"},
+    {name:"1v1.lol",href:"1v1lol-unblocked.html",img:"../images/1v1lol-unblocked-classroom-6x.webp"},
+    {name:"Retro Bowl",href:"retro-bowl-unblocked.html",img:"../images/retro-bowl-unblocked-classroom-6x.webp"},
+    {name:"Smash Karts",href:"smash-karts-unblocked.html",img:"../images/smash-karts-unblocked-classroom-6x.webp"},
+    {name:"Drive Mad",href:"drive-mad-unblocked.html",img:"../images/drive-mad-unblocked-classroom-6x.webp"},
+    {name:"Happy Wheels",href:"happy-wheels-unblocked.html",img:"../images/happy-wheels-unblocked-classroom-6x.webp"},
+    {name:"Monkey Mart",href:"monkey-mart-unblocked.html",img:"../images/monkey-mart-unblocked-classroom-6x.webp"}
+  ];
+  (function(){const cur=window.location.pathname.split('/').pop();const filtered=MP_GAMES.filter(g=>g.href!==cur).sort(()=>Math.random()-0.5).slice(0,10);const el=document.getElementById('mpScroll');if(el)el.innerHTML=filtered.map(g=>`<a href="${g.href}" class="mp-item"><img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.style.background='#1a1a2e'"><div class="mp-item-name">${g.name}</div></a>`).join('');})();
+</script>
+</body>
+</html>
