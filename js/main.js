@@ -208,16 +208,24 @@ const GAMES = [
 let activeCategory = 'all';
 
 function goPlay(url) {
-  if(url && url !== '#') { window.open(url, '_blank'); }
+  if(!url || url === '#') return;
+  // If we're in a subdir and url is relative like "game/slope.html", prepend ../
+  const inSubdir = window.location.pathname.includes('/category/') || window.location.pathname.includes('/pages/');
+  if(inSubdir && !url.startsWith('http') && !url.startsWith('/') && !url.startsWith('..')) {
+    url = '../' + url;
+  }
+  window.location.href = url;
 }
 
 function buildCard(g) {
   const badgeClass = g.badge === 'HOT' ? 'badge-hot' : g.badge === 'NEW' ? 'badge-new' : '';
+  const inSubdir = window.location.pathname.includes('/category/') || window.location.pathname.includes('/game/') || window.location.pathname.includes('/pages/');
+  const imgPrefix = inSubdir ? '../' : '';
   return `
     <div class="game-card" onclick="goPlay('${g.url}')">
       <div class="game-thumb">
         ${g.img
-          ? `<img src="${g.img}" alt="${g.name} unblocked" loading="lazy"/>`
+          ? `<img src="${imgPrefix}${g.img}" alt="${g.name} unblocked" loading="lazy"/>`
           : g.emoji}
         ${g.badge ? `<span class="game-badge ${badgeClass}">${g.badge}</span>` : ''}
       </div>

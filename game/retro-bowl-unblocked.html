@@ -68,11 +68,11 @@
 <canvas id="bgCanvas" aria-hidden="true"></canvas>
 <div class="page-wrap">
   <nav class="navbar">
-    <a href="../index.html" class="nav-logo" style="gap:10px;">
+    <a href="https://classrooms6xunblocked.github.io/" class="nav-logo" style="gap:10px;">
       <img src="../classrooms-6x-unblocked.webp" alt="Classroom 6x" class="logo-img" style="height:90px;"/>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="../index.html">Home</a></li>
+      <li><a href="https://classrooms6xunblocked.github.io/">Home</a></li>
       <li><a href="../category/sports.html" class="active">Sports</a></li>
       <li><a href="../category/action.html">Action</a></li>
       <li><a href="../category/idle.html">Idle</a></li>
@@ -83,20 +83,26 @@
     </button>
   </nav>
   <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="https://classrooms6xunblocked.github.io/">Home</a><span class="sep">›</span>
     <a href="../category/sports.html">Sports</a><span class="sep">›</span>
     <span class="current">Retro Bowl Unblocked</span>
   </nav>
 
   <div class="game-frame-wrap" id="gameWrap">
-    <iframe id="gameFrame" src="https://game316009.konggames.com/gamez/0031/6009/live/index.html" title="Retro Bowl Unblocked – Play at School" allowfullscreen loading="lazy"></iframe>
+    <div id="gameplaceholder" style="width:100%;height:540px;display:flex;align-items:center;justify-content:center;background:#0d0d1a;cursor:pointer;flex-direction:column;gap:1rem;" onclick="loadGame()">
+      <div style="font-size:3rem;">🏈</div>
+      <div style="color:#fff;font-size:1.2rem;font-weight:700;">Click to Load Retro Bowl</div>
+      <div style="color:#888;font-size:0.85rem;">Game loads on click to save bandwidth</div>
+      <button style="background:linear-gradient(135deg,#4f8ef7,#a259ff);color:#fff;border:none;padding:0.7rem 2rem;border-radius:999px;font-weight:700;font-size:1rem;cursor:pointer;margin-top:0.5rem;">▶ Play Now</button>
+    </div>
+    <iframe id="gameFrame" src="" title="Retro Bowl Unblocked – Play at School" allowfullscreen style="display:none;width:100%;height:540px;border:none;"></iframe>
     <div class="game-controls-bar">
       <div>
         <div class="game-title-bar">🏈 Retro Bowl Unblocked</div>
         <div class="controls-hint">Controls: Click/Drag to pass &nbsp;|&nbsp; Mouse to aim &nbsp;|&nbsp; Swipe on mobile</div>
       </div>
       <div class="btn-bar">
-        <button class="btn-play" onclick="document.getElementById('gameFrame').src='https://game316009.konggames.com/gamez/0031/6009/live/index.html'">▶ Play Now</button>
+        <button class="btn-play" onclick="loadGame()">▶ Play Now</button>
         <button class="btn-fullscreen" onclick="enterFullscreen()">⛶ Fullscreen</button>
         <button class="btn-report" onclick="openReport()">⚑ Report</button>
       </div>
@@ -292,7 +298,7 @@
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Classroom 6x · Written by <strong>Ash Mercer</strong></span>
+      <span>© 2026 Classroom 6x · Founded by <strong>Ash Mercer</strong></span>
       <span><a href="../pages/privacy.html">Privacy</a> · <a href="../pages/dmca.html">DMCA</a></span>
     </div>
   </footer>
@@ -308,6 +314,13 @@
   document.getElementById('reportForm').addEventListener('submit',function(e){e.preventDefault();fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}}).then(()=>{this.innerHTML='<p style="color:var(--accent);text-align:center;padding:1rem;">Thanks! Report sent.</p>';setTimeout(closeReport,2000);}).catch(()=>alert('Could not send. Try again later.'));});
   document.body.dataset.faqInit='true';
   document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',function(){const item=this.closest('.faq-item');const icon=this.querySelector('.faq-icon');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-icon').textContent='+';});if(!isOpen){item.classList.add('open');icon.textContent='−';}});});
+
+  function loadGame() {
+    const ph = document.getElementById('gameplaceholder');
+    const fr = document.getElementById('gameFrame');
+    if(ph) ph.style.display = 'none';
+    if(fr) { fr.style.display = 'block'; fr.src = 'https://game316009.konggames.com/gamez/0031/6009/live/index.html'; }
+  }
   if(typeof initNav==='function')initNav();
   const MP_GAMES=[
     {name:"Monkey Mart",href:"monkey-mart-unblocked.html",img:"../images/monkey-mart-unblocked-classroom-6x.webp"},
