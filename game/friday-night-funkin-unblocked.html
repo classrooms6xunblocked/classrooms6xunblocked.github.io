@@ -14,6 +14,8 @@
   <meta property="og:url" content="https://classrooms6xunblocked.github.io/game/friday-night-funkin-unblocked.html"/>
   <meta property="og:image" content="https://classrooms6xunblocked.github.io/images/friday-night-funkin-unblocked-classroom-6x.webp"/>
   <link rel="icon" type="image/webp" href="../classrooms-6x-unblocked.webp"/>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com"/>
+  <link rel="dns-prefetch" href="//fonts.gstatic.com"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -229,7 +231,7 @@
       <h3>Same Rhythm, Different Format</h3>
       <div class="similar-games-grid">
         <a href="geometry-dash-unblocked.html" class="sim-card">
-          <div class="sim-thumb"><img src="../images/geometry-dash-unblocked-classroom-6x.webp" alt="Geometry Dash" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a1a3e,#0d0d2b)';this.style.display='none'"/></div>
+          <div class="sim-thumb"><img loading="lazy" src="../images/geometry-dash-unblocked-classroom-6x.webp" alt="Geometry Dash" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a1a3e,#0d0d2b)';this.style.display='none'"/></div>
           <div class="sim-info">
             <div class="sim-name">Geometry Dash</div>
             <div class="sim-desc">Music-synced gameplay in a different format. Obstacles move to the beat just like FNF notes do.</div>
@@ -237,7 +239,7 @@
           <span class="sim-play">Play ▶</span>
         </a>
         <a href="slope-unblocked.html" class="sim-card">
-          <div class="sim-thumb"><img src="../images/slope-unblocked-classroom-6x.webp" alt="Slope" onerror="this.parentElement.style.background='linear-gradient(135deg,#0d1f3e,#0a0a2b)';this.style.display='none'"/></div>
+          <div class="sim-thumb"><img loading="lazy" src="../images/slope-unblocked-classroom-6x.webp" alt="Slope" onerror="this.parentElement.style.background='linear-gradient(135deg,#0d1f3e,#0a0a2b)';this.style.display='none'"/></div>
           <div class="sim-info">
             <div class="sim-name">Slope</div>
             <div class="sim-desc">Different format entirely but same skill ceiling and same short sessions. Reflexes over rhythm.</div>
@@ -269,7 +271,7 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="../classrooms-6x-unblocked.webp" alt="Classroom 6x Unblocked" style="height:90px;width:auto;margin-bottom:0.8rem;filter:drop-shadow(0 0 12px rgba(79,142,247,0.7))"/>
+        <img loading="lazy" src="../classrooms-6x-unblocked.webp" alt="Classroom 6x Unblocked" style="height:90px;width:auto;margin-bottom:0.8rem;filter:drop-shadow(0 0 12px rgba(79,142,247,0.7))"/>
         <p>Free unblocked games for students. Play instantly on any Chromebook.</p>
       </div>
       <div class="footer-col"><h4>Categories</h4><ul>
@@ -298,8 +300,8 @@
     </div>
   </footer>
 </div>
-<script src="../js/main.js"></script>
-<script src="../js/cursor.js"></script>
+<script src="../js/main.js" defer></script>
+<script src="../js/cursor.js" defer></script>
 <script>
   function enterFullscreen(){const f=document.getElementById('gameFrame');if(f.requestFullscreen)f.requestFullscreen();else if(f.webkitRequestFullscreen)f.webkitRequestFullscreen();else if(f.mozRequestFullScreen)f.mozRequestFullScreen();else{const b=f.parentElement;b.style.cssText='position:fixed;inset:0;z-index:9999;border-radius:0;border:none;';f.style.height='100vh';f.style.width='100vw';const c=document.createElement('button');c.textContent='✕ Exit Fullscreen';c.style.cssText='position:fixed;top:10px;right:10px;z-index:10000;background:var(--accent);color:#fff;border:none;padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:700;font-size:13px;';c.onclick=()=>{b.style.cssText='';f.style.height='';f.style.width='';c.remove();};document.body.appendChild(c);}}
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){const c=document.querySelector('[onclick*="remove"]');if(c)c.click();}});
