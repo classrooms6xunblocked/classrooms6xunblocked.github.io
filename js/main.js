@@ -1,26 +1,127 @@
-(function(){const canvas=document.getElementById('bgCanvas');if(!canvas)return;const ctx=canvas.getContext('2d');let W=canvas.width=window.innerWidth;let H=canvas.height=window.innerHeight;let mx=W/2,my=H/2;window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;});window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});const COLORS=['#4f8ef7','#a259ff','#00e5ff','#ff4444'{name:"Eggy Car",emoji:"🥚",img:"images/eggy-car-unblocked-classroom-6x.webp",categories:["car","racing"],badge:"NEW",url:"game/eggy-car-unblocked.html"},{name:"Wormate.io",emoji:"🐛",img:"images/wormate-io-unblocked-classroom-6x.webp",categories:["io","multiplayer"],badge:"NEW",url:"game/wormate-io-unblocked.html"},{name:"Agar.io",emoji:"🔵",img:"images/agario-unblocked-classroom-6x.webp",categories:["io","multiplayer"],badge:"",url:"game/agario-unblocked.html"},{name:"House of Hazards",emoji:"🏠",img:"images/house-of-hazards-unblocked-classroom-6x.webp",categories:["2player","multiplayer"],badge:"NEW",url:"game/house-of-hazards-unblocked.html"},{name:"Madalin Stunt Cars 2",emoji:"🚗",img:"images/madalin-stunt-cars-2-unblocked-classroom-6x.webp",categories:["car","racing","multiplayer"],badge:"",url:"game/madalin-stunt-cars-2-unblocked.html"},{name:"Blockpost",emoji:"🧱",img:"images/blockpost-unblocked-classroom-6x.webp",categories:["shooting","io","multiplayer"],badge:"",url:"game/blockpost-unblocked.html"},{name:"Sky Balls 3D",emoji:"🔮",img:"images/sky-balls-3d-unblocked-classroom-6x.webp",categories:["action","2player"],badge:"NEW",url:"game/sky-balls-3d-unblocked.html"},];const cubes=Array.from({length:18},()=>({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,size:Math.random()*70+50,vx:(Math.random()-0.5)*0.5,vy:(Math.random()-0.5)*0.5,rot:Math.random()*Math.PI*2,rs:(Math.random()-0.5)*0.02,color:['#4f8ef7','#a259ff','#00e5ff'][Math.floor(Math.random()*3)],alpha:Math.random()*0.3+0.5,}));const controllers=Array.from({length:10},()=>({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,size:Math.random()*55+45,vx:(Math.random()-0.5)*0.4,vy:(Math.random()-0.5)*0.4,rot:Math.random()*Math.PI*2,rs:(Math.random()-0.5)*0.01,color:Math.random()>0.5?'#4f8ef7':'#a259ff',alpha:Math.random()*0.3+0.5,}));const dots=Array.from({length:60},()=>({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,r:Math.random()*2+1,vx:(Math.random()-0.5)*0.6,vy:(Math.random()-0.5)*0.6,color:COLORS[Math.floor(Math.random()*COLORS.length)],alpha:Math.random()*0.5+0.2,}));function drawCube(c){ctx.save();ctx.translate(c.x,c.y);ctx.rotate(c.rot);ctx.globalAlpha=c.alpha;ctx.strokeStyle=c.color;ctx.lineWidth=1.5;ctx.shadowBlur=20;ctx.shadowColor=c.color;const s=c.size;ctx.strokeRect(-s/2,-s/2,s,s);const o=s*0.3;ctx.beginPath();ctx.moveTo(-s/2,-s/2);ctx.lineTo(-s/2+o,-s/2-o);ctx.moveTo(s/2,-s/2);ctx.lineTo(s/2+o,-s/2-o);ctx.moveTo(s/2,s/2);ctx.lineTo(s/2+o,s/2-o);ctx.moveTo(-s/2,s/2);ctx.lineTo(-s/2+o,s/2-o);ctx.moveTo(-s/2+o,-s/2-o);ctx.lineTo(s/2+o,-s/2-o);ctx.moveTo(s/2+o,-s/2-o);ctx.lineTo(s/2+o,s/2-o);ctx.moveTo(-s/2+o,s/2-o);ctx.lineTo(s/2+o,s/2-o);ctx.stroke();ctx.restore();}
-function drawController(c){ctx.save();ctx.translate(c.x,c.y);ctx.rotate(c.rot);ctx.globalAlpha=c.alpha;ctx.strokeStyle=c.color;ctx.fillStyle=c.color;ctx.lineWidth=2;ctx.shadowBlur=25;ctx.shadowColor=c.color;const w=c.size*2,h=c.size*1.2;ctx.strokeRect(-w/2,-h/2,w,h);ctx.strokeRect(-w/2,h*0.1,w*0.3,h*0.5);ctx.strokeRect(w/2-w*0.3,h*0.1,w*0.3,h*0.5);ctx.fillRect(-w*0.3,-h*0.05,w*0.06,h*0.3);ctx.fillRect(-w*0.35,h*0.05,w*0.16,h*0.1);ctx.beginPath();ctx.arc(w*0.25,-h*0.05,c.size*0.12,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.arc(w*0.38,h*0.08,c.size*0.12,0,Math.PI*2);ctx.fill();ctx.restore();}
-function loop(){ctx.clearRect(0,0,W,H);const g=ctx.createRadialGradient(W/2,H/3,0,W/2,H/3,H);g.addColorStop(0,'rgba(79,142,247,0.06)');g.addColorStop(1,'transparent');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);cubes.forEach(c=>{c.x+=c.vx;c.y+=c.vy;c.rot+=c.rs;if(c.x<-60)c.x=W+60;if(c.x>W+60)c.x=-60;if(c.y<-60)c.y=H+60;if(c.y>H+60)c.y=-60;drawCube(c);});controllers.forEach(c=>{c.x+=c.vx;c.y+=c.vy;c.rot+=c.rs;if(c.x<-80)c.x=W+80;if(c.x>W+80)c.x=-80;if(c.y<-80)c.y=H+80;if(c.y>H+80)c.y=-80;drawController(c);});ctx.shadowBlur=0;dots.forEach((d,i)=>{d.x+=d.vx;d.y+=d.vy;if(d.x<0)d.x=W;if(d.x>W)d.x=0;if(d.y<0)d.y=H;if(d.y>H)d.y=0;ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle=d.color;ctx.globalAlpha=d.alpha;ctx.fill();for(let j=i+1;j<dots.length;j++){const dx=d.x-dots[j].x,dy=d.y-dots[j].y;const dist=Math.sqrt(dx*dx+dy*dy);if(dist<120){ctx.beginPath();ctx.moveTo(d.x,d.y);ctx.lineTo(dots[j].x,dots[j].y);ctx.strokeStyle=`rgba(79,142,247,${(1-dist/120)*0.2})`;ctx.lineWidth=0.5;ctx.globalAlpha=1;ctx.stroke();}}});ctx.globalAlpha=1;ctx.shadowBlur=0;requestAnimationFrame(loop);}
-loop();})();const GAMES=[{name:"1v1.lol",emoji:"🔫",img:"images/1v1lol-unblocked-classroom-6x.webp",categories:["shooting","io","multiplayer"],badge:"HOT",url:"game/1v1lol-unblocked.html"},{name:"Slope",emoji:"🔵",img:"images/slope-unblocked-classroom-6x.webp",categories:["action"],badge:"HOT",url:"game/slope-unblocked.html"},{name:"Run 3",emoji:"🏃",img:"images/run-3-unblocked-classroom-6x.webp",categories:["action"],badge:"",url:"game/run-3-unblocked.html"},{name:"OvO",emoji:"⭕",img:"images/ovo-unblocked-classroom-6x.webp",categories:["action"],badge:"",url:"game/ovo-unblocked.html"},{name:"Geometry Dash",emoji:"🔷",img:"images/geometry-dash-unblocked-classroom-6x.webp",categories:["action"],badge:"",url:"game/geometry-dash-unblocked.html"},{name:"Stickman Hook",emoji:"🕹️",img:"images/stickman-hook-unblocked-classroom-6x.webp",categories:["action"],badge:"",url:"game/stickman-hook-unblocked.html"},{name:"Friday Night Funkin",emoji:"🎵",img:"images/friday-night-funkin-unblocked-classroom-6x.webp",categories:["action"],badge:"HOT",url:"game/friday-night-funkin-unblocked.html"},{name:"Moto X3M",emoji:"🏍️",img:"images/moto-x3m-unblocked-classroom-6x.webp",categories:["racing","car","sports"],badge:"",url:"game/moto-x3m-unblocked.html"},{name:"Drift Hunters",emoji:"🚗",img:"images/drift-hunters-unblocked-classroom-6x.webp",categories:["racing","car","sports"],badge:"",url:"game/drift-hunters-unblocked.html"},{name:"Drive Mad",emoji:"🚙",img:"images/drive-mad-unblocked-classroom-6x.webp",categories:["racing","car"],badge:"",url:"game/drive-mad-unblocked.html"},{name:"Drift Boss",emoji:"🏎️",img:"images/drift-boss-unblocked-classroom-6x.webp",categories:["racing","car"],badge:"HOT",url:"game/drift-boss-unblocked.html"},{name:"Fireboy & Watergirl",emoji:"🔥",img:"images/fireboy-watergirl-3-unblocked-classroom-6x.webp",categories:["puzzle","2player"],badge:"",url:"game/fireboy-watergirl-3-unblocked.html"},{name:"2048",emoji:"🔢",img:"images/2048-unblocked-classroom-6x.webp",categories:["puzzle"],badge:"",url:"game/2048-unblocked.html"},{name:"Little Alchemy 2",emoji:"⚗️",img:"images/little-alchemy-2-unblocked-classroom-6x.webp",categories:["puzzle"],badge:"NEW",url:"game/little-alchemy-2-unblocked.html"},{name:"Shell Shockers",emoji:"🥚",img:"images/shell-shockers-unblocked-classroom-6x.webp",categories:["shooting","io","multiplayer"],badge:"NEW",url:"game/shell-shockers-unblocked.html"},{name:"Paper.io 2",emoji:"📄",img:"images/paperio-2-unblocked-classroom-6x.webp",categories:["io","multiplayer"],badge:"",url:"game/paperio-2-unblocked.html"},{name:"Rooftop Snipers",emoji:"🎯",img:"images/rooftop-snipers-unblocked-classroom-6x.webp",categories:["2player","shooting"],badge:"",url:"game/rooftop-snipers-unblocked.html"},{name:"Basketball Stars",emoji:"🏀",img:"images/basketball-stars-unblocked-classroom-6x.webp",categories:["sports","2player"],badge:"HOT",url:"game/basketball-stars-unblocked.html"},{name:"Retro Bowl",emoji:"🏈",img:"images/retro-bowl-unblocked-classroom-6x.webp",categories:["sports"],badge:"",url:"game/retro-bowl-unblocked.html"},{name:"Basket Random",emoji:"🏀",img:"images/basket-random-unblocked-classroom-6x.webp",categories:["sports","2player"],badge:"",url:"game/basket-random-unblocked.html"},{name:"Cookie Clicker",emoji:"🍪",img:"images/cookie-clicker-unblocked-classroom-6x.webp",categories:["idle"],badge:"",url:"game/cookie-clicker-unblocked.html"},{name:"Monkey Mart",emoji:"🐵",img:"images/monkey-mart-unblocked-classroom-6x.webp",categories:["idle"],badge:"HOT",url:"game/monkey-mart-unblocked.html"},{name:"Idle Miner",emoji:"⛏️",img:"images/idle-miner-unblocked-classroom-6x.webp",categories:["idle"],badge:"",url:"game/idle-miner-unblocked.html"},{name:"Smash Karts",emoji:"🏎️",img:"images/smash-karts-unblocked-classroom-6x.webp",categories:["io","multiplayer","shooting","car"],badge:"",url:"game/smash-karts-unblocked.html"},{name:"Tunnel Rush",emoji:"🌀",img:"images/tunnel-rush-unblocked-classroom-6x.webp",categories:["action"],badge:"",url:"game/tunnel-rush-unblocked.html"},{name:"Happy Wheels",emoji:"🛞",img:"images/happy-wheels-unblocked-classroom-6x.webp",categories:["action"],badge:"",url:"game/happy-wheels-unblocked.html"},{name:"Subway Surfers",emoji:"🚇",img:"images/subway-surfers-unblocked-classroom-6x.webp",categories:["action"],badge:"",url:"game/subway-surfers-unblocked.html"},];let activeCategory='all';function goPlay(url){if(!url||url==='#')return;const inSubdir=window.location.pathname.includes('/category/')||window.location.pathname.includes('/pages/');if(inSubdir&&!url.startsWith('http')&&!url.startsWith('/')&&!url.startsWith('..')){url='../'+url;}
-window.location.href=url;}
-function buildCard(g){const badgeClass=g.badge==='HOT'?'badge-hot':g.badge==='NEW'?'badge-new':'';const inSubdir=window.location.pathname.includes('/category/')||window.location.pathname.includes('/game/')||window.location.pathname.includes('/pages/');const imgPrefix=inSubdir?'../':'';return`
+const GAMES = [
+  { name:"Eggy Car",             emoji:"🥚", img:"images/eggy-car-unblocked-classroom-6x.webp",               categories:["car","racing"],                      badge:"NEW", url:"game/eggy-car-unblocked.html" },
+  { name:"Wormate.io",           emoji:"🐛", img:"images/wormate-io-unblocked-classroom-6x.webp",             categories:["io","multiplayer"],                  badge:"NEW", url:"game/wormate-io-unblocked.html" },
+  { name:"Agar.io",              emoji:"🔵", img:"images/agario-unblocked-classroom-6x.webp",                 categories:["io","multiplayer"],                  badge:"",    url:"game/agario-unblocked.html" },
+  { name:"House of Hazards",     emoji:"🏠", img:"images/house-of-hazards-unblocked-classroom-6x.webp",       categories:["2player","multiplayer"],             badge:"NEW", url:"game/house-of-hazards-unblocked.html" },
+  { name:"Madalin Stunt Cars 2", emoji:"🚗", img:"images/madalin-stunt-cars-2-unblocked-classroom-6x.webp",  categories:["car","racing","multiplayer"],        badge:"",    url:"game/madalin-stunt-cars-2-unblocked.html" },
+  { name:"Blockpost",            emoji:"🧱", img:"images/blockpost-unblocked-classroom-6x.webp",              categories:["shooting","io","multiplayer"],       badge:"",    url:"game/blockpost-unblocked.html" },
+  { name:"Sky Balls 3D",         emoji:"🔮", img:"images/sky-balls-3d-unblocked-classroom-6x.webp",           categories:["action","2player"],                 badge:"NEW", url:"game/sky-balls-3d-unblocked.html" },
+  { name:"1v1.lol",              emoji:"🔫", img:"images/1v1lol-unblocked-classroom-6x.webp",                 categories:["shooting","io","multiplayer"],       badge:"HOT", url:"game/1v1lol-unblocked.html" },
+  { name:"Slope",                emoji:"🔵", img:"images/slope-unblocked-classroom-6x.webp",                  categories:["action"],                           badge:"HOT", url:"game/slope-unblocked.html" },
+  { name:"Run 3",                emoji:"🏃", img:"images/run-3-unblocked-classroom-6x.webp",                  categories:["action"],                           badge:"",    url:"game/run-3-unblocked.html" },
+  { name:"OvO",                  emoji:"⭕", img:"images/ovo-unblocked-classroom-6x.webp",                   categories:["action"],                           badge:"",    url:"game/ovo-unblocked.html" },
+  { name:"Geometry Dash",        emoji:"🔷", img:"images/geometry-dash-unblocked-classroom-6x.webp",          categories:["action"],                           badge:"",    url:"game/geometry-dash-unblocked.html" },
+  { name:"Stickman Hook",        emoji:"🕹️", img:"images/stickman-hook-unblocked-classroom-6x.webp",         categories:["action"],                           badge:"",    url:"game/stickman-hook-unblocked.html" },
+  { name:"Friday Night Funkin",  emoji:"🎵", img:"images/friday-night-funkin-unblocked-classroom-6x.webp",    categories:["action"],                           badge:"HOT", url:"game/friday-night-funkin-unblocked.html" },
+  { name:"Moto X3M",             emoji:"🏍️", img:"images/moto-x3m-unblocked-classroom-6x.webp",             categories:["racing","car","sports"],            badge:"",    url:"game/moto-x3m-unblocked.html" },
+  { name:"Drift Hunters",        emoji:"🚗", img:"images/drift-hunters-unblocked-classroom-6x.webp",          categories:["racing","car","sports"],            badge:"",    url:"game/drift-hunters-unblocked.html" },
+  { name:"Drive Mad",            emoji:"🚙", img:"images/drive-mad-unblocked-classroom-6x.webp",              categories:["racing","car"],                     badge:"",    url:"game/drive-mad-unblocked.html" },
+  { name:"Drift Boss",           emoji:"🏎️", img:"images/drift-boss-unblocked-classroom-6x.webp",           categories:["racing","car"],                     badge:"HOT", url:"game/drift-boss-unblocked.html" },
+  { name:"Fireboy & Watergirl",  emoji:"🔥", img:"images/fireboy-watergirl-3-unblocked-classroom-6x.webp",   categories:["puzzle","2player"],                 badge:"",    url:"game/fireboy-watergirl-3-unblocked.html" },
+  { name:"2048",                 emoji:"🔢", img:"images/2048-unblocked-classroom-6x.webp",                  categories:["puzzle"],                           badge:"",    url:"game/2048-unblocked.html" },
+  { name:"Little Alchemy 2",     emoji:"⚗️", img:"images/little-alchemy-2-unblocked-classroom-6x.webp",     categories:["puzzle"],                           badge:"NEW", url:"game/little-alchemy-2-unblocked.html" },
+  { name:"Shell Shockers",       emoji:"🥚", img:"images/shell-shockers-unblocked-classroom-6x.webp",        categories:["shooting","io","multiplayer"],       badge:"NEW", url:"game/shell-shockers-unblocked.html" },
+  { name:"Paper.io 2",           emoji:"📄", img:"images/paperio-2-unblocked-classroom-6x.webp",             categories:["io","multiplayer"],                 badge:"",    url:"game/paperio-2-unblocked.html" },
+  { name:"Rooftop Snipers",      emoji:"🎯", img:"images/rooftop-snipers-unblocked-classroom-6x.webp",       categories:["2player","shooting"],               badge:"",    url:"game/rooftop-snipers-unblocked.html" },
+  { name:"Basketball Stars",     emoji:"🏀", img:"images/basketball-stars-unblocked-classroom-6x.webp",      categories:["sports","2player"],                 badge:"HOT", url:"game/basketball-stars-unblocked.html" },
+  { name:"Retro Bowl",           emoji:"🏈", img:"images/retro-bowl-unblocked-classroom-6x.webp",            categories:["sports"],                           badge:"",    url:"game/retro-bowl-unblocked.html" },
+  { name:"Basket Random",        emoji:"🏀", img:"images/basket-random-unblocked-classroom-6x.webp",         categories:["sports","2player"],                 badge:"",    url:"game/basket-random-unblocked.html" },
+  { name:"Cookie Clicker",       emoji:"🍪", img:"images/cookie-clicker-unblocked-classroom-6x.webp",        categories:["idle"],                             badge:"",    url:"game/cookie-clicker-unblocked.html" },
+  { name:"Monkey Mart",          emoji:"🐵", img:"images/monkey-mart-unblocked-classroom-6x.webp",           categories:["idle"],                             badge:"HOT", url:"game/monkey-mart-unblocked.html" },
+  { name:"Idle Miner",           emoji:"⛏️", img:"images/idle-miner-unblocked-classroom-6x.webp",           categories:["idle"],                             badge:"",    url:"game/idle-miner-unblocked.html" },
+  { name:"Smash Karts",          emoji:"🏎️", img:"images/smash-karts-unblocked-classroom-6x.webp",         categories:["io","multiplayer","shooting","car"], badge:"",    url:"game/smash-karts-unblocked.html" },
+  { name:"Tunnel Rush",          emoji:"🌀", img:"images/tunnel-rush-unblocked-classroom-6x.webp",           categories:["action"],                           badge:"",    url:"game/tunnel-rush-unblocked.html" },
+  { name:"Happy Wheels",         emoji:"🛞", img:"images/happy-wheels-unblocked-classroom-6x.webp",          categories:["action"],                           badge:"",    url:"game/happy-wheels-unblocked.html" },
+  { name:"Subway Surfers",       emoji:"🚇", img:"images/subway-surfers-unblocked-classroom-6x.webp",        categories:["action"],                           badge:"",    url:"game/subway-surfers-unblocked.html" },
+];
+
+let activeCategory = 'all';
+
+function goPlay(url) {
+  const inSubdir = window.location.pathname.includes('/category/') || window.location.pathname.includes('/pages/');
+  window.location.href = inSubdir ? '../' + url : url;
+}
+
+function buildCard(g) {
+  const badgeClass = g.badge === 'HOT' ? 'badge-hot' : g.badge === 'NEW' ? 'badge-new' : '';
+  const inSubdir = window.location.pathname.includes('/category/') || window.location.pathname.includes('/game/') || window.location.pathname.includes('/pages/');
+  const imgPrefix = inSubdir ? '../' : '';
+  return `
     <div class="game-card" onclick="goPlay('${g.url}')">
       <div class="game-thumb">
         ${g.img
-          ? `<img src="${imgPrefix}${g.img}"alt="${g.name} unblocked"loading="lazy"/>`
-          : g.emoji}
-        ${g.badge ? `<span class="game-badge ${badgeClass}">${g.badge}</span>` : ''}
+          ? `<img src="${imgPrefix}${g.img}" alt="${g.name} unblocked" loading="lazy"/>`
+          : `<span class="game-emoji">${g.emoji}</span>`}
+        ${g.badge ? `<span class="badge ${badgeClass}">${g.badge}</span>` : ''}
       </div>
       <div class="game-info">
-        <h3>${g.name}</h3>
+        <div class="game-name">${g.name}</div>
         <span class="game-cat-tag">${g.categories[0]}</span>
       </div>
-      <button class="play-btn" onclick="event.stopPropagation(); goPlay('${g.url}')">▶ Play Now</button>
-    </div>`;}
-function renderGames(list){const grid=document.getElementById('gameGrid');if(!grid)return;if(!list.length){grid.innerHTML='<div class="no-results">😔 No games found — try a different keyword!</div>';return;}
-grid.innerHTML=list.map(buildCard).join('');}
-function filterGames(){const q=(document.getElementById('searchInput')?.value||'').toLowerCase().trim();let list=activeCategory==='all'?GAMES:GAMES.filter(g=>g.categories.includes(activeCategory));if(q)list=list.filter(g=>g.name.toLowerCase().includes(q)||g.categories.join(' ').includes(q));renderGames(list);}
-function setCategory(cat,btn){activeCategory=cat;document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));btn?.classList.add('active');const si=document.getElementById('searchInput');if(si)si.value='';filterGames();}
-function initNav(){const ham=document.getElementById('hamburger');const links=document.querySelector('.nav-links');if(ham&&links){ham.addEventListener('click',()=>links.classList.toggle('open'));}}
-function initFaq(){if(document.body.dataset.faqInit)return;document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',function(){const item=this.closest('.faq-item');const icon=this.querySelector('.faq-icon');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');const ic=i.querySelector('.faq-icon');if(ic)ic.textContent='+';});if(!isOpen){item.classList.add('open');if(icon)icon.textContent='−';}});});}
-document.addEventListener('DOMContentLoaded',()=>{initNav();initFaq();filterGames();const si=document.getElementById('searchInput');if(si)si.addEventListener('input',filterGames);});
+      <button class="play-btn">▶ Play Now</button>
+    </div>`;
+}
+
+function renderGames(list) {
+  const grid = document.getElementById('gameGrid');
+  if (!grid) return;
+  if (!list.length) {
+    grid.innerHTML = '<div class="no-results">😔 No games found — try a different keyword!</div>';
+    return;
+  }
+  grid.innerHTML = list.map(buildCard).join('');
+}
+
+function filterGames() {
+  const q = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
+  let list = activeCategory === 'all' ? GAMES : GAMES.filter(g => g.categories.includes(activeCategory));
+  if (q) list = list.filter(g => g.name.toLowerCase().includes(q) || g.categories.join(' ').includes(q));
+  renderGames(list);
+}
+
+function setCategory(cat, btn) {
+  activeCategory = cat;
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterGames();
+}
+
+function initNav() {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('open');
+      }
+    });
+  }
+}
+
+function initFaq() {
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const item = this.closest('.faq-item');
+      const icon = this.querySelector('.faq-icon');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        const ic = i.querySelector('.faq-icon');
+        if (ic) ic.textContent = '+';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        if (icon) icon.textContent = '−';
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initNav();
+  initFaq();
+  filterGames();
+  const si = document.getElementById('searchInput');
+  if (si) si.addEventListener('input', filterGames);
+});
